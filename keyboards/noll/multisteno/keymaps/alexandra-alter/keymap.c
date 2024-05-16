@@ -4,7 +4,6 @@
 typedef enum layer_t {
   L_ST,   // stenotype
   L_DV,   // dvorak
-  L_QT,   // qwerty
   L_XNM,  // navigation/mouse
   L_XSN,  // symbols/numbers
   L_XFE,  // functions/extras
@@ -14,9 +13,10 @@ typedef enum layer_t {
   L_OHS,  // one-handed symbols
   L_OHN,  // one-handed numbers
   L_OHV,  // one-handed navigation
-  L_OHM,  // one-handed modifiers
+  L_OHF,  // one-handed functions
   L_NP,   // number pad
   L_MS,   // mouse
+  L_MOD,  // modifiers
   L_HUB,  // hub
   L_MAX,
 } layer_t;
@@ -30,11 +30,11 @@ typedef enum layer_t {
 // left modifiers
 #define KA_L3 (LT(L_HUB, KC_ESC))
 #define KA_L2 (LCTL_T(KC_BSPC))
-#define KA_L1 (LGUI_T(KC_TAB))
+#define KA_L1 (LSFT_T(KC_TAB))
 
 // left thumbs
 #define KA_LT3 (LT(L_XFE, KC_LBRC))
-#define KA_LT2 (LT(L_XSN, KC_ENT))
+#define KA_LT2 (LT(L_XSN, KC_ESC))
 #define KA_LT1 (LT(L_XNM, KC_SPC))
 
 // right modifiers
@@ -44,12 +44,12 @@ typedef enum layer_t {
 
 // right thumbs
 #define KA_RT3 (RALT_T(KC_RBRC))
-#define KA_RT2 (LALT_T(KC_ESC))
-#define KA_RT1 (KC_RSFT)
+#define KA_RT2 (LALT_T(KC_ENT))
+#define KA_RT1 (LSFT_T(KC_SPC))
 
 // one-handed modifiers
 #define KA_O3 (LT(L_HUB, KC_ESC))
-#define KA_O2 (LT(L_OHM, KC_BSPC))
+#define KA_O2 (LT(L_MOD, KC_BSPC))
 #define KA_O1 (KC_LSFT)
 
 // one-handed thumbs
@@ -69,10 +69,10 @@ typedef enum layer_t {
 // layers switching
 #define DF_ST (DF(L_ST))
 #define DF_DV (DF(L_DV))
-#define DF_QT (DF(L_QT))
 #define DF_OH (DF(L_OH))
 #define DF_NP (DF(L_NP))
 #define DF_MS (DF(L_MS))
+#define MO_MOD (MO(L_MOD))
 // }}}
 
 // {{{ layout convenience defs
@@ -113,13 +113,6 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KA_L3,   KC_QUOT, KC_COMM, KC_DOT,  KC_P,    KC_Y,    KC_F,    KC_G,    KC_C,    KC_R,    KC_L,    KA_R3,
     KA_L2,   KC_A,    KC_O,    KC_E,    KC_U,    KC_I,    KC_D,    KC_H,    KC_T,    KC_N,    KC_S,    KA_R2,
     KA_L1,   KC_SCLN, KC_Q,    KC_J,    KC_K,    KC_X,    KC_B,    KC_M,    KC_W,    KC_V,    KC_Z,    KA_R1,
-                               KA_LT3,  KA_LT2,  KA_LT1,  KA_RT1,  KA_RT2,  KA_RT3
-  ), // }}}
-
-  [L_QT] = LAYOUT_3x6_3( // {{{ qwerty
-    KA_L3,   KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,    KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KA_R3,
-    KA_L2,   KC_A,    KC_S,    KC_D,    KC_F,    KC_G,    KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN, KA_R2,
-    KA_L1,   KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, KA_R1,
                                KA_LT3,  KA_LT2,  KA_LT1,  KA_RT1,  KA_RT2,  KA_RT3
   ), // }}}
 
@@ -186,30 +179,37 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                _______, _______, _______
   ), // }}}
 
-  [L_OHM] = LAYOUT_3x6_3_mirrored( // {{{ one-handed modifiers
-    _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
-    _______, XXXXXXX, OSM_RAL, OSM_GUI, OSM_CTL, XXXXXXX,
-    _______, XXXXXXX, XXXXXXX, OSM_HYP, OSM_MEH, XXXXXXX,
-                               XXXXXXX, OSM_ALT, OSM_SFT
+  [L_OHF] = LAYOUT_3x6_3_mirrored( // {{{ one-handed functions
+    _______, KC_F1,   KC_F2,   KC_F3,   KC_F4,   XXXXXXX,
+    _______, KC_F5,   KC_F6,   KC_F7,   KC_F8,   XXXXXXX,
+    KC_LSFT, KC_F9,   KC_F10,  KC_F11,  KC_F12,  XXXXXXX,
+                               _______, _______, _______
   ), // }}}
 
   [L_MS] = LAYOUT_3x6_3_mirrored_outer( // {{{ mouse
-    KA_L3,   KC_WH_U, KC_BTN4, KC_MS_U, KC_BTN5, KC_BTN3,
-    KC_LCTL, KC_WH_D, KC_MS_L, KC_MS_D, KC_MS_R, KC_BTN1,
-    KC_LGUI, KC_ACL2, KC_WH_L, XXXXXXX, KC_WH_R, KC_BTN2,
-                               KC_RALT, KC_LALT, KC_LSFT
+    KA_L3,   KC_WH_U, KC_BTN4, KC_MS_U, KC_BTN5, KC_RALT,
+    MO_MOD,  KC_WH_D, KC_MS_L, KC_MS_D, KC_MS_R, KC_LGUI,
+    KC_LSFT, KC_ACL2, KC_WH_L, XXXXXXX, KC_WH_R, KC_LALT,
+                               KC_BTN3, KC_BTN2, KC_BTN1
   ), // }}}
 
   [L_NP] = LAYOUT_3x6_3_mirrored_outer( // {{{ number pad
     KA_L3,   KC_PSLS, KC_P1,   KC_P2,   KC_P3,   KC_PMNS,
     KC_LCTL, KC_PAST, KC_P4,   KC_P5,   KC_P6,   KC_PPLS,
-    KC_LSFT, KC_P0,   KC_P7,   KC_P8,   KC_P9,   KC_P0,
+    KC_LSFT, KC_PENT, KC_P7,   KC_P8,   KC_P9,   KC_P0,
                                KC_RALT, KC_LALT, KC_LSFT
+  ), // }}}
+
+  [L_MOD] = LAYOUT_3x6_3_mirrored( // {{{ modifiers
+    _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+    XXXXXXX, XXXXXXX, XXXXXXX, OSM_GUI, OSM_CTL, XXXXXXX,
+    XXXXXXX, XXXXXXX, XXXXXXX, OSM_HYP, OSM_MEH, XXXXXXX,
+                               OSM_RAL, OSM_ALT, OSM_SFT
   ), // }}}
 
   [L_HUB] = LAYOUT_3x6_3_mirrored( // {{{ hub
     XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, QK_BOOT,
-    XXXXXXX, XXXXXXX, DF_QT,   DF_NP,   DF_MS,   XXXXXXX,
+    XXXXXXX, XXXXXXX, XXXXXXX, DF_NP,   DF_MS,   XXXXXXX,
     XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
                                DF_OH,   DF_DV,   DF_ST
   ), // }}}
@@ -221,36 +221,31 @@ typedef struct layer_leds_t {
   bool green;
 } layer_leds_t;
 
-layer_state_t layer_state_set_user(layer_state_t state) { // {{{
-  // layer handling
-
-  state = update_tri_layer_state(state, L_XSN, L_XFE, L_XFM);
-  state = update_tri_layer_state(state, L_OHA, L_OHS, L_OHV);
-
-  // led handling
+static void set_leds(layer_state_t state) { // {{{
   layer_leds_t leds;
+
   switch (get_highest_layer(state)) {
     case (L_ST):
+    case (L_MOD):
       leds = (layer_leds_t){false, true};
       break;
-    case (L_QT):
     case (L_DV):
-    case (L_OH):
-      leds = (layer_leds_t){true, false};
-      break;
-    case (L_XNM):
-    case (L_XSN):
-    case (L_XFE):
-    case (L_XFM):
+    case (L_NP):
+    case (L_MS):
     case (L_OHA):
     case (L_OHS):
     case (L_OHN):
     case (L_OHV):
-    case (L_OHM):
+    case (L_OHF):
+      leds = (layer_leds_t){true, false};
+      break;
+    case (L_OH):
+    case (L_XNM):
+    case (L_XSN):
+    case (L_XFE):
+    case (L_XFM):
       leds = (layer_leds_t){true, true};
       break;
-    case (L_NP):
-    case (L_MS):
     case (L_HUB):
     default:
       leds = (layer_leds_t){false, false};
@@ -262,22 +257,32 @@ layer_state_t layer_state_set_user(layer_state_t state) { // {{{
     gpio_write_pin_low(A0);
 
   if (leds.green)
-    gpio_write_pin_low(A1);
+    gpio_write_pin_high(A1);
   else
     gpio_write_pin_low(A1);
-
-  return state;
 } // }}}
 
-layer_state_t default_layer_state_set_user(layer_state_t state) { // {{{
+layer_state_t layer_state_set_user(layer_state_t state) {
+  state = update_tri_layer_state(state, L_XSN, L_XFE, L_XFM);
+  state = update_tri_layer_state(state, L_OHA, L_OHS, L_OHV);
+  state = update_tri_layer_state(state, L_OHS, L_OHN, L_OHF);
+
+  set_leds(state | default_layer_state);
+
+  return state;
+}
+
+layer_state_t default_layer_state_set_user(layer_state_t state) {
   layer_clear();
 
-  return state;
-} // }}}
+  set_leds(layer_state | state);
 
-void keyboard_post_init_user(void) { // {{{
+  return state;
+}
+
+void keyboard_post_init_user(void) {
   default_layer_set(1 << L_ST);
   layer_clear();
-} // }}}
+}
 
 /* vim: set foldmethod=marker shiftwidth=2 : */
