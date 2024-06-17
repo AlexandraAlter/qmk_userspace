@@ -25,8 +25,6 @@ typedef enum layer_t {
 // outer column keys are indexed from bottom to top
 // thumb row keys are indexed from inside to outside
 
-// to assign: symbols, functions, numbers, extras, mouse, alt, ctl, super, media
-
 // left modifiers
 #define KA_L3 (LT(L_HUB, KC_ESC))
 #define KA_L2 (LCTL_T(KC_BSPC))
