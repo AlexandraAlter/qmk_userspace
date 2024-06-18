@@ -8,6 +8,7 @@ typedef enum layer_t {
   L_BASE, // base
   L_GA,   // gaming
   L_DV,   // dvorak
+  L_DVH,  // dvorak home-row mods
   L_QT,   // qwerty
   L_SHV,  // shavian
   L_OH,   // one-handed
@@ -104,6 +105,15 @@ META_KEY(R7, KC_LALT, KC_LEFT);
 #define KA_GLWR (MO(L_GLWR))
 #define KA_GRAI (MO(L_GRAI))
 
+#define KA_A (MT(MOD_LGUI, KC_A))
+#define KA_O (MT(MOD_LALT, KC_O))
+#define KA_E (MT(MOD_LSFT, KC_E))
+#define KA_U (MT(MOD_LCTL, KC_U))
+#define KA_H (MT(MOD_RCTL, KC_H))
+#define KA_T (MT(MOD_RSFT, KC_T))
+#define KA_N (MT(MOD_RALT, KC_N))
+#define KA_S (MT(MOD_RGUI, KC_S))
+
 #define MO_MS (MO(L_MS))
 // }}}
 
@@ -119,6 +129,13 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [L_DV] = LAYOUT_planck_grid( // {{{ dvorak
     KA_L1,   KC_QUOT, KC_COMM, KC_DOT,  KC_P,    KC_Y,    KC_F,    KC_G,    KC_C,    KC_R,    KC_L,    KA_R1,
     KA_L2,   KC_A,    KC_O,    KC_E,    KC_U,    KC_I,    KC_D,    KC_H,    KC_T,    KC_N,    KC_S,    KA_R2,
+    KA_L3,   KC_SCLN, KC_Q,    KC_J,    KC_K,    KC_X,    KC_B,    KC_M,    KC_W,    KC_V,    KC_Z,    KA_R3,
+    MA_L4,   MA_L5,   MA_L6,   MA_L7,   KA_LWR,  KA_SPC,  KA_SPC,  KA_RAI,  KA_R7,   KA_R6,   KA_R5,   KA_R4
+  ), // }}}
+
+  [L_DVH] = LAYOUT_planck_grid( // {{{ dvorak home-row mods
+    KA_L1,   KC_QUOT, KC_COMM, KC_DOT,  KC_P,    KC_Y,    KC_F,    KC_G,    KC_C,    KC_R,    KC_L,    KA_R1,
+    KA_L2,   KA_A,    KA_O,    KA_E,    KA_U,    KC_I,    KC_D,    KA_H,    KA_T,    KA_N,    KA_S,    KA_R2,
     KA_L3,   KC_SCLN, KC_Q,    KC_J,    KC_K,    KC_X,    KC_B,    KC_M,    KC_W,    KC_V,    KC_Z,    KA_R3,
     MA_L4,   MA_L5,   MA_L6,   MA_L7,   KA_LWR,  KA_SPC,  KA_SPC,  KA_RAI,  KA_R7,   KA_R6,   KA_R5,   KA_R4
   ), // }}}
@@ -237,8 +254,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   [L_HUB] = LAYOUT_planck_grid( // {{{ hub
     XXXXXXX,  DF(L_NP), DF(L_SHV),XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  LED_CYC,  QK_BOOT,
-    XXXXXXX,  DF(L_OH), DF(L_DV), DF(L_ST), DF(L_GA), XXXXXXX,  XXXXXXX,  RGB_TLC,  RGB_TOG,  RGB_SAI,  RGB_HUI,  XXXXXXX,
-    MA_L3,    DF(L_MS), DF(L_QT), DF(L_STC),XXXXXXX,  XXXXXXX,  XXXXXXX,  RGB_SLD,  RGB_MOD,  RGB_SPI,  RGB_VAI,  MA_R3,
+    XXXXXXX,  DF(L_OH), DF(L_DVH),DF(L_ST), DF(L_GA), XXXXXXX,  XXXXXXX,  RGB_TLC,  RGB_TOG,  RGB_SAI,  RGB_HUI,  XXXXXXX,
+    MA_L3,    DF(L_MS), DF(L_DV), DF(L_STC),XXXXXXX,  XXXXXXX,  XXXXXXX,  RGB_SLD,  RGB_MOD,  RGB_SPI,  RGB_VAI,  MA_R3,
     _______,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  AU_TOGG,  NK_TOGG,  XXXXXXX,  XXXXXXX
   ), // }}}
 };
@@ -378,6 +395,13 @@ const color_t PROGMEM ledmap[L_MAX][RGB_MATRIX_LED_COUNT] = {
   }, // }}}
 
   [L_DV] = { // {{{
+    C_SU_4, C_SU_2, C_SU_2, C_SU_2, C_SU_2, C_SU_2, C_SU_2, C_SU_2, C_SU_2, C_SU_2, C_SU_2, C_SU_4,
+    C_SU_4, C_SU_1, C_SU_1, C_SU_1, C_SU_1, C_SU_2, C_SU_2, C_SU_1, C_SU_1, C_SU_1, C_SU_1, C_SU_4,
+    C_SU_4, C_SU_2, C_SU_2, C_SU_2, C_SU_2, C_SU_2, C_SU_2, C_SU_2, C_SU_2, C_SU_2, C_SU_2, C_SU_4,
+    C_SU_5, C_SU_4, C_SU_4, C_SU_4, C_SU_5,     C_SU_5,     C_SU_5, C_SU_4, C_SU_4, C_SU_4, C_SU_4
+  }, // }}}
+
+  [L_DVH] = { // {{{
     C_SU_4, C_SU_2, C_SU_2, C_SU_2, C_SU_2, C_SU_2, C_SU_2, C_SU_2, C_SU_2, C_SU_2, C_SU_2, C_SU_4,
     C_SU_4, C_SU_1, C_SU_1, C_SU_1, C_SU_1, C_SU_2, C_SU_2, C_SU_1, C_SU_1, C_SU_1, C_SU_1, C_SU_4,
     C_SU_4, C_SU_2, C_SU_2, C_SU_2, C_SU_2, C_SU_2, C_SU_2, C_SU_2, C_SU_2, C_SU_2, C_SU_2, C_SU_4,
@@ -616,7 +640,7 @@ layer_state_t default_layer_state_set_user(layer_state_t state) { // {{{
 void keyboard_post_init_user(void) { // {{{
   rgb_matrix_enable();
   steno_set_mode(STENO_MODE_GEMINI);
-  default_layer_set(1 << L_DV);
+  default_layer_set(1 << L_DVH);
   layer_clear();
 } // }}}
 
