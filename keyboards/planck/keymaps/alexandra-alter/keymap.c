@@ -5,7 +5,6 @@
 extern keyboard_config_t keyboard_config;
 
 typedef enum layer_t {
-  L_BASE, // base
   L_GA,   // gaming
   L_DV,   // dvorak
   L_QT,   // qwerty
@@ -118,13 +117,6 @@ META_KEY(R7, KC_LALT, KC_LEFT);
 
 // clang-format off
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
-  [L_BASE] = LAYOUT_planck_grid( // {{{ base
-    KA_L1,   KC_QUOT, KC_COMM, KC_DOT,  KC_P,    KC_Y,    KC_F,    KC_G,    KC_C,    KC_R,    KC_L,    KA_R1,
-    KA_L2,   KC_A,    KC_O,    KC_E,    KC_U,    KC_I,    KC_D,    KC_H,    KC_T,    KC_N,    KC_S,    KA_R2,
-    KA_L3,   KC_SCLN, KC_Q,    KC_J,    KC_K,    KC_X,    KC_B,    KC_M,    KC_W,    KC_V,    KC_Z,    KA_R3,
-    MA_L4,   MA_L5,   MA_L6,   MA_L7,   KA_LWR,  KA_SPC,  KA_SPC,  KA_RAI,  KA_R7,   KA_R6,   KA_R5,   KA_R4
-  ), // }}}
-
   [L_DV] = LAYOUT_planck_grid( // {{{ dvorak
     KA_L1,   KC_QUOT, KC_COMM, KC_DOT,  KC_P,    KC_Y,    KC_F,    KC_G,    KC_C,    KC_R,    KC_L,    KA_R1,
     KA_L2,   KA_A,    KA_O,    KA_E,    KA_U,    KC_I,    KC_D,    KA_H,    KA_T,    KA_N,    KA_S,    KA_R2,
@@ -379,13 +371,6 @@ const uint8_t PROGMEM color_map[C_MAX][3] = { // {{{
 
 // clang-format off
 const color_t PROGMEM ledmap[L_MAX][RGB_MATRIX_LED_COUNT] = {
-  [L_BASE] = { // {{{
-    C_SU_4, C_____, C_____, C_____, C_____, C_____, C_____, C_____, C_____, C_____, C_____, C_SU_4,
-    C_SU_4, C_____, C_____, C_____, C_____, C_____, C_____, C_____, C_____, C_____, C_____, C_SU_4,
-    C_SU_4, C_____, C_____, C_____, C_____, C_____, C_____, C_____, C_____, C_____, C_____, C_SU_4,
-    C_SU_5, C_SU_4, C_SU_4, C_SU_4, C_SU_5,     C_SU_5,     C_SU_5, C_SU_4, C_SU_4, C_SU_4, C_SU_4
-  }, // }}}
-
   [L_DV] = { // {{{
     C_SU_4, C_SU_2, C_SU_2, C_SU_2, C_SU_2, C_SU_2, C_SU_2, C_SU_2, C_SU_2, C_SU_2, C_SU_2, C_SU_4,
     C_SU_4, C_SU_1, C_SU_1, C_SU_1, C_SU_1, C_SU_2, C_SU_2, C_SU_1, C_SU_1, C_SU_1, C_SU_1, C_SU_4,
