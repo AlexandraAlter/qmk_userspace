@@ -290,17 +290,17 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   ), // }}}
 
   [L_HUB] = LAYOUT_planck_grid( // {{{ hub
-    KC_LGUI,  XXXXXXX,  DF_NP,    DF_SHV,   XXXXXXX,  XXXXXXX,  XXXXXXX,  KC_BRIU,  KC_BRID,  XXXXXXX,  LED_CYC,  KC_RGUI,
-    KC_LCTL,  XXXXXXX,  DF_OH,    DF_DV,    DF_ST,    DF_GA,    XXXXXXX,  RGB_TLC,  RGB_TOG,  RGB_SAI,  RGB_HUI,  KC_RCTL,
-    KC_LSFT,  XXXXXXX,  DF_MS,    DF_QT,    DF_STC,   XXXXXXX,  XXXXXXX,  RGB_SLD,  RGB_MOD,  RGB_SPI,  RGB_VAI,  KC_RSFT,
-    MO_HUB,   KC_LGUI,  KC_LCTL,  KC_LALT,  XXXXXXX,  MO_SYS,   MO_SYS,   XXXXXXX,  KC_RALT,  KC_RCTL,  KC_RGUI,  XXXXXXX
+    KC_LGUI,  XXXXXXX,  DF_NP,    DF_SHV,   XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  LED_CYC,  KC_RGUI,
+    KC_LCTL,  XXXXXXX,  DF_OH,    DF_DV,    DF_ST,    DF_GA,    KC_BRID,  RGB_HUI,  RGB_TOG,  RGB_SLD,  RGB_SAI,  KC_RCTL,
+    KC_LSFT,  XXXXXXX,  DF_MS,    DF_QT,    DF_STC,   XXXXXXX,  KC_BRIU,  RGB_MOD,  RGB_TLC,  RGB_VAI,  RGB_SPI,  KC_RSFT,
+    MO_HUB,   KC_LGUI,  KC_LCTL,  KC_LALT,  XXXXXXX,  MO_SYS,   MO_SYS,   XXXXXXX,  KC_RALT,  KC_RCTL,  KC_RGUI,  KC_LALT
   ), // }}}
 
   [L_SYS] = LAYOUT_planck_grid( // {{{ system
     KC_LGUI,  XXXXXXX,  XXXXXXX,  XXXXXXX,  KC_PWR,   XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  QK_BOOT,  XXXXXXX,  KC_LGUI,
     KC_LCTL,  AU_TOGG,  XXXXXXX,  XXXXXXX,  KC_SLEP,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  NK_TOGG,  XXXXXXX,  KC_LCTL,
     KC_LSFT,  XXXXXXX,  XXXXXXX,  XXXXXXX,  KC_WAKE,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  KC_RSFT,
-    MO_HUB,   KC_LGUI,  KC_LCTL,  KC_LALT,  XXXXXXX,  MO_SYS,   MO_SYS,   XXXXXXX,  KC_RALT,  KC_RCTL,  KC_RGUI,  XXXXXXX
+    MO_HUB,   KC_LGUI,  KC_LCTL,  KC_LALT,  XXXXXXX,  MO_SYS,   MO_SYS,   XXXXXXX,  KC_RALT,  KC_RCTL,  KC_RGUI,  KC_LALT
   ), // }}}
 };
 // clang-format on
@@ -533,17 +533,17 @@ const color_t PROGMEM ledmap[L_MAX][RGB_MATRIX_LED_COUNT] = {
   }, // }}}
 
   [L_HUB] = { // {{{ hub
-    C_SO_4, C_____, C_____, C_____, C_____, C_____, C_____, C_____, C_____, C_____, C_____, C_SO_4,
-    C_SO_4, C_____, C_____, C_____, C_____, C_____, C_____, C_____, C_____, C_____, C_____, C_SO_4,
-    C_SO_4, C_____, C_____, C_____, C_____, C_____, C_____, C_____, C_____, C_____, C_____, C_SO_4,
-    C_SO_5, C_SO_4, C_SO_4, C_SO_4, C_____,     C_SO_5,     C_____, C_SO_4, C_SO_4, C_SO_4, C_____
+    C_SO_4, C_____, C_SO_1, C_SO_2, C_____, C_____, C_____, C_____, C_____, C_____, C_RU_3, C_SO_4,
+    C_SO_4, C_____, C_SO_1, C_SO_1, C_SO_1, C_SO_1, C_RU_3, C_RU_4, C_RU_1, C_RU_2, C_RU_4, C_SO_4,
+    C_SO_4, C_____, C_SO_1, C_SO_2, C_SO_2, C_____, C_RU_3, C_RU_2, C_RU_1, C_RU_4, C_RU_4, C_SO_4,
+    C_SO_5, C_SO_4, C_SO_4, C_SO_4, C_____,     C_SO_5,     C_____, C_SO_4, C_SO_4, C_SO_4, C_SO_4
   }, // }}}
 
   [L_SYS] = { // {{{ system
     C_SO_4, C_____, C_____, C_____, C_SO_2, C_____, C_____, C_____, C_____, C_SO_1, C_____, C_SO_4,
     C_SO_4, C_SO_2, C_____, C_____, C_SO_2, C_____, C_____, C_____, C_____, C_SO_2, C_____, C_SO_4,
     C_SO_4, C_____, C_____, C_____, C_SO_2, C_____, C_____, C_____, C_____, C_____, C_____, C_SO_4,
-    C_SO_5, C_SO_4, C_SO_4, C_SO_4, C_____,     C_SO_5,     C_____, C_SO_4, C_SO_4, C_SO_4, C_____
+    C_SO_5, C_SO_4, C_SO_4, C_SO_4, C_____,     C_SO_5,     C_____, C_SO_4, C_SO_4, C_SO_4, C_SO_4
   }, // }}}
 };
 // clang-format on
@@ -581,11 +581,11 @@ layer_state_t layer_state_set_user(layer_state_t state) { // {{{
   state = update_tri_layer_state(state, L_XSN, L_XNF, L_XMF);
   state = update_tri_layer_state(state, L_GAN, L_GAF, L_GAX);
 
-  if (IS_LAYER_ON_STATE(state, L_XSN))
+  if (IS_LAYER_ON_STATE(state, L_XSN) || IS_LAYER_ON_STATE(state, L_HUB))
     planck_ez_left_led_on();
   else
     planck_ez_left_led_off();
-  if (IS_LAYER_ON_STATE(state, L_XNF))
+  if (IS_LAYER_ON_STATE(state, L_XNF) || IS_LAYER_ON_STATE(state, L_HUB))
     planck_ez_right_led_on();
   else
     planck_ez_right_led_off();
