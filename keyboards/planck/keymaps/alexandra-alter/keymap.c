@@ -115,10 +115,10 @@ const uint32_t PROGMEM unicode_map[] = {
 #define RG_TAB  (MT(MOD_RGUI, KC_TAB))
 #define RC_DEL  (MT(MOD_RCTL, KC_DEL))
 #define RS_ENT  (MT(MOD_RSFT, KC_ENT))
-#define RA_RGHT (MT(MOD_RALT, KC_RIGHT))
+#define LA_RGHT (MT(MOD_LALT, KC_RIGHT))
 #define RG_UP   (MT(MOD_RGUI, KC_UP))
 #define RC_DOWN (MT(MOD_RCTL, KC_DOWN))
-#define LA_LEFT (MT(MOD_LALT, KC_LEFT))
+#define RA_LEFT (MT(MOD_RALT, KC_LEFT))
 
 #define MO_MS  (MO(L_MS))
 #define MO_HUB (MO(L_HUB))
@@ -139,36 +139,37 @@ const uint32_t PROGMEM unicode_map[] = {
 // clang-format off
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [L_DV] = LAYOUT_planck_grid( // {{{ dvorak
-    LG_ESC,   KC_QUOT,  KC_COMM,  KC_DOT,   KC_P,     KC_Y,     KC_F,     KC_G,     KC_C,     KC_R,     KC_L,     RG_TAB,
+    LG_ESC,   KC_QUOT,  KC_COMM,  KC_DOT,   KC_P,     KC_Y,     KC_F,     KC_G,     KC_C,     LA(KC_R), KC_L,     RG_TAB,
     LC_BSPC,  LG(KC_A), LA(KC_O), LS(KC_E), LC(KC_U), KC_I,     KC_D,     RC(KC_H), RS(KC_T), RA(KC_N), RG(KC_S), RC_DEL,
     LS_TAB,   KC_SCLN,  KC_Q,     KC_J,     KC_K,     KC_X,     KC_B,     KC_M,     KC_W,     KC_V,     KC_Z,     RS_ENT,
-    MO_HUB,   KC_LGUI,  KC_LCTL,  KC_LALT,  KA_LWR,   KA_SPC,   KA_SPC,   KA_RAI,   LA_LEFT,  RC_DOWN,  RG_UP,    RA_RGHT
+    MO_HUB,   KC_LGUI,  KC_LCTL,  KC_LALT,  KA_LWR,   KA_SPC,   KA_SPC,   KA_RAI,   RA_LEFT,  RC_DOWN,  RG_UP,    LA_RGHT
   ), // }}}
 
 #define RG_SCLN (MT(MOD_RGUI, KC_SCLN))
   [L_QT] = LAYOUT_planck_grid( // {{{ qwerty
-    LG_ESC,   KC_Q,     KC_W,     KC_E,     KC_R,     KC_T,     KC_Y,     KC_U,     KC_I,     KC_O,     KC_P,     RG_TAB,
+    LG_ESC,   KC_Q,     KC_W,     KC_E,     KC_R,     KC_T,     KC_Y,     KC_U,     KC_I,     LA(KC_O), KC_P,     RG_TAB,
     LC_BSPC,  LG(KC_A), LA(KC_S), LS(KC_D), LC(KC_F), KC_G,     KC_H,     RC(KC_J), RS(KC_K), RA(KC_L), RG_SCLN,  RC_DEL,
     LS_TAB,   KC_Z,     KC_X,     KC_C,     KC_V,     KC_B,     KC_N,     KC_M,     KC_COMM,  KC_DOT,   KC_SLSH,  RS_ENT,
-    MO_HUB,   KC_LGUI,  KC_LCTL,  KC_LALT,  KA_LWR,   KA_SPC,   KA_SPC,   KA_RAI,   LA_LEFT,  RC_DOWN,  RG_UP,    RA_RGHT
+    MO_HUB,   KC_LGUI,  KC_LCTL,  KC_LALT,  KA_LWR,   KA_SPC,   KA_SPC,   KA_RAI,   RA_LEFT,  RC_DOWN,  RG_UP,    LA_RGHT
   ), // }}}
 
   [L_SHV] = LAYOUT_planck_grid( // {{{ shavian
     LG_ESC,   SHV_1_0,  SHV_1_1,  SHV_1_2,  SHV_1_3,  SHV_1_4,  SHV_1_5,  SHV_1_6,  SHV_1_7,  SHV_1_8,  SHV_1_9,  RG_TAB,
     LC_BSPC,  SHV_2_0,  SHV_2_1,  SHV_2_2,  SHV_2_3,  SHV_2_4,  SHV_2_5,  SHV_2_6,  SHV_2_7,  SHV_2_8,  SHV_2_9,  RC_DEL,
     LS_TAB,   SHV_3_0,  SHV_3_1,  SHV_3_2,  SHV_3_3,  SHV_3_4,  SHV_3_5,  SHV_3_6,  SHV_3_7,  SHV_3_8,  SHV_3_9,  RS_ENT,
-    MO_HUB,   KC_LGUI,  KC_LCTL,  KC_LALT,  KA_LWR,   KA_SPC,   KA_SPC,   KA_RAI,   LA_LEFT,  RC_DOWN,  RG_UP,    RA_RGHT
+    MO_HUB,   KC_LGUI,  KC_LCTL,  KC_LALT,  KA_LWR,   KA_SPC,   KA_SPC,   KA_RAI,   RA_LEFT,  RC_DOWN,  RG_UP,    LA_RGHT
   ), // }}}
 
   [L_OH] = LAYOUT_planck_grid( // {{{ one-handed
-    LG_ESC,   KC_L,     KC_R,     KC_C,     KC_G,     KC_F,     XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,
+    LG_ESC,   KC_L,     RA(KC_R), KC_C,     KC_G,     KC_F,     XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,
     LC_BSPC,  LG(KC_A), LA(KC_O), LS(KC_E), LC(KC_U), KC_I,     XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,
     LS_TAB,   KC_S,     KC_N,     KC_T,     KC_H,     KC_D,     XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,
     MO_HUB,   KC_LGUI,  KC_LCTL,  KC_LALT,  KA_OLWR,  KA_OSPC,  KA_OSPC,  KA_ORAI,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX
   ), // }}}
 
+#define RA_COMM (MT(MOD_RALT, KC_COMM))
   [L_OHA] = LAYOUT_planck_grid( // {{{ one-handed alt
-    _______,  KC_QUOT,  KC_COMM,  KC_DOT,   KC_P,     KC_Y,     XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,
+    _______,  KC_QUOT,  RA_COMM,  KC_DOT,   KC_P,     KC_Y,     XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,
     _______,  LG(KC_Z), LA(KC_V), LS(KC_W), LC(KC_M), KC_B,     XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,
     _______,  KC_SCLN,  KC_Q,     KC_J,     KC_K,     KC_X,     XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,
     MO_HUB,   _______,  _______,  _______,  _______,  _______,  _______,  _______,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX
@@ -234,7 +235,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     MO_HUB,   _______,  _______,  _______,  KA_LWR,   KA_SPC,   KA_SPC,   KA_RAI,   _______,  _______,  _______,  _______
   ), // }}}
 
-// LG_ESC, LA_LEFT are coincidentally already defined
+// LG_ESC is coincidentally already defined
+#define LA_LEFT (MT(MOD_LALT, KC_LEFT))
 #define LS_DOWN (MT(MOD_LSFT, KC_DOWN))
 #define LC_RGHT (MT(MOD_LCTL, KC_RGHT))
 #define RC_F5   (MT(MOD_RCTL, KC_F5))
@@ -249,9 +251,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   ), // }}}
 
   [L_XMM] = LAYOUT_planck_grid( // {{{ misc/mouse
-    _______,  KC_SYRQ,  XXXXXXX,  XXXXXXX,  KC_PSCR,  XXXXXXX,  KC_BTN3,  KC_BTN4,  KC_MS_U,  KC_BTN5,  KC_WH_U,  _______,
+    _______,  XXXXXXX,  XXXXXXX,  KC_BRK,   KC_PSCR,  KC_SYRQ,  KC_BTN3,  KC_BTN4,  KC_MS_U,  KC_BTN5,  KC_WH_U,  _______,
     _______,  KC_LGUI,  KC_LALT,  KC_LSFT,  KC_LCTL,  KC_INS,   KC_BTN1,  KC_MS_L,  KC_MS_D,  KC_MS_R,  KC_WH_D,  _______,
-    _______,  KC_SCRL,  KC_BRK,   KC_CAPS,  KC_NUM,   KC_PAUS,  KC_BTN2,  KC_WH_L,  XXXXXXX,  KC_WH_R,  KC_ACL2,  _______,
+    _______,  XXXXXXX,  KC_SCRL,  KC_NUM,   KC_CAPS,  KC_PAUS,  KC_BTN2,  KC_WH_L,  XXXXXXX,  KC_WH_R,  KC_ACL2,  _______,
     MO_HUB,   _______,  _______,  _______,  KA_LWR,   KA_SPC,   KA_SPC,   KA_RAI,   _______,  _______,  _______,  _______
   ), // }}}
 
@@ -260,9 +262,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 #define RA_F19  (MT(MOD_RALT, KC_F19))
 #define RG_F20  (MT(MOD_RALT, KC_F20))
   [L_XMF] = LAYOUT_planck_grid( // {{{ media/functions 2
-    _______,  KC_VOLD,  KC_VOLU,  KC_MPRV,  KC_MNXT,  KC_MSEL,  XXXXXXX,  KC_F13,   KC_F14,   KC_F15,   KC_F16,   _______,
-    _______,  KC_LGUI,  KC_LALT,  KC_LSFT,  KC_LCTL,  XXXXXXX,  XXXXXXX,  RC_F17,   RS_F18,   RA_F19,   RG_F20,   _______,
-    _______,  KC_MSTP,  KC_MPLY,  KC_MRWD,  KC_MFFD,  KC_MUTE,  XXXXXXX,  KC_F21,   KC_F22,   KC_F23,   KC_F24,   _______,
+    _______,  KC_MSTP,  KC_MPRV,  KC_MNXT,  KC_MPLY,  KC_VOLU,  XXXXXXX,  KC_F13,   KC_F14,   KC_F15,   KC_F16,   _______,
+    _______,  KC_LGUI,  KC_LALT,  KC_LSFT,  KC_LCTL,  KC_VOLD,  XXXXXXX,  RC_F17,   RS_F18,   RA_F19,   RG_F20,   _______,
+    _______,  KC_MSEL,  KC_MRWD,  KC_MFFD,  XXXXXXX,  KC_MUTE,  XXXXXXX,  KC_F21,   KC_F22,   KC_F23,   KC_F24,   _______,
     MO_HUB,   _______,  _______,  _______,  KA_LWR,   KA_SPC,   KA_SPC,   KA_RAI,   _______,  _______,  _______,  _______
   ), // }}}
 
@@ -277,20 +279,16 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     LG_ESC,   KC_ACL0,  KC_BTN4,  KC_MS_U,  KC_BTN5,  KC_WH_U,  XXXXXXX,  XXXXXXX,  KC_WH_U,  XXXXXXX,  KC_BTN6,  RG_TAB,
     LC_BSPC,  KC_ACL1,  KC_MS_L,  KC_MS_D,  KC_MS_R,  KC_WH_D,  XXXXXXX,  KC_WH_L,  KC_WH_D,  KC_WH_R,  KC_BTN7,  RC_DEL,
     LS_TAB,   KC_ACL2,  KC_WH_L,  XXXXXXX,  KC_WH_R,  XXXXXXX,  XXXXXXX,  KC_ACL2,  KC_ACL1,  KC_ACL0,  KC_BTN8,  RS_ENT,
-    MO_HUB,   KC_LGUI,  KC_LCTL,  KC_LALT,  KC_BTN2,  KC_BTN1,  KC_BTN1,  KC_BTN3,  LA_LEFT,  RC_DOWN,  RG_UP,    RA_RGHT
+    MO_HUB,   KC_LGUI,  KC_LCTL,  KC_LALT,  KC_BTN2,  KC_BTN1,  KC_BTN1,  KC_BTN3,  RA_LEFT,  RC_DOWN,  RG_UP,    LA_RGHT
   ), // }}}
 
   [L_FN] = LAYOUT_planck_grid( // {{{ functions
-    LG_ESC,   XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  RG_TAB,
-    LC_BSPC,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  RC_DEL,
-    LS_TAB,   XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  RS_ENT,
-    MO_HUB,   KC_LGUI,  KC_LCTL,  KC_LALT,  KC_BTN2,  KC_BTN1,  KC_BTN1,  KC_BTN3,  LA_LEFT,  RC_DOWN,  RG_UP,    RA_RGHT
+    LG_ESC,   KC_F1,    KC_F2,    KC_F3,    KC_F4,    XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  RG_TAB,
+    LC_BSPC,  RC_F5,    RS_F6,    RA_F7,    RG_F8,    XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  RC_DEL,
+    LS_TAB,   KC_F9,    KC_F10,   KC_F11,   KC_F12,   XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  RS_ENT,
+    MO_HUB,   KC_LGUI,  KC_LCTL,  KC_LALT,  KC_BTN2,  KC_BTN1,  KC_BTN1,  KC_BTN3,  RA_LEFT,  RC_DOWN,  RG_UP,    LA_RGHT
   ), // }}}
 
-#define DF_OH  (DF(L_OH))
-#define DF_NP  (DF(L_NP))
-#define DF_MS  (DF(L_MS))
-#define DF_FN  (DF(L_FN))
   [L_HUB] = LAYOUT_planck_grid( // {{{ hub
     KC_LGUI,  XXXXXXX,  DF_NP,    DF_SHV,   XXXXXXX,  XXXXXXX,  XXXXXXX,  KC_BRIU,  KC_BRID,  XXXXXXX,  LED_CYC,  KC_RGUI,
     KC_LCTL,  XXXXXXX,  DF_OH,    DF_DV,    DF_ST,    DF_GA,    XXXXXXX,  RGB_TLC,  RGB_TOG,  RGB_SAI,  RGB_HUI,  KC_RCTL,
@@ -402,14 +400,14 @@ const uint8_t PROGMEM color_map[C_MAX][3] = { // {{{
 // clang-format off
 const color_t PROGMEM ledmap[L_MAX][RGB_MATRIX_LED_COUNT] = {
   [L_DV] = { // {{{ dvorak
-    C_SU_4, C_SU_2, C_SU_2, C_SU_2, C_SU_2, C_SU_2, C_SU_2, C_SU_2, C_SU_2, C_SU_2, C_SU_2, C_SU_4,
+    C_SU_4, C_SU_2, C_SU_2, C_SU_2, C_SU_2, C_SU_2, C_SU_2, C_SU_2, C_SU_2, C_SU_1, C_SU_2, C_SU_4,
     C_SU_4, C_SU_1, C_SU_1, C_SU_1, C_SU_1, C_SU_2, C_SU_2, C_SU_1, C_SU_1, C_SU_1, C_SU_1, C_SU_4,
     C_SU_4, C_SU_2, C_SU_2, C_SU_2, C_SU_2, C_SU_2, C_SU_2, C_SU_2, C_SU_2, C_SU_2, C_SU_2, C_SU_4,
     C_SU_5, C_SU_4, C_SU_4, C_SU_4, C_SU_5,     C_SU_5,     C_SU_5, C_SU_4, C_SU_4, C_SU_4, C_SU_4
   }, // }}}
 
   [L_QT] = { // {{{ querty
-    C_DS_4, C_DS_2, C_DS_2, C_DS_2, C_DS_2, C_DS_2, C_DS_2, C_DS_2, C_DS_2, C_DS_2, C_DS_2, C_DS_4,
+    C_DS_4, C_DS_2, C_DS_2, C_DS_2, C_DS_2, C_DS_2, C_DS_2, C_DS_2, C_DS_2, C_DS_1, C_DS_2, C_DS_4,
     C_DS_4, C_DS_1, C_DS_1, C_DS_1, C_DS_1, C_DS_2, C_DS_2, C_DS_1, C_DS_1, C_DS_1, C_DS_1, C_DS_4,
     C_DS_4, C_DS_2, C_DS_2, C_DS_2, C_DS_2, C_DS_2, C_DS_2, C_DS_2, C_DS_2, C_DS_2, C_DS_2, C_DS_4,
     C_DS_5, C_DS_4, C_DS_4, C_DS_4, C_DS_5,     C_DS_5,     C_DS_5, C_DS_4, C_DS_4, C_DS_4, C_DS_4
@@ -423,14 +421,14 @@ const color_t PROGMEM ledmap[L_MAX][RGB_MATRIX_LED_COUNT] = {
   }, // }}}
 
   [L_OH] = { // {{{ one-handed
-    C_SU_4, C_SU_2, C_SU_2, C_SU_2, C_SU_2, C_SU_2, C_____, C_____, C_____, C_____, C_____, C_____,
+    C_SU_4, C_SU_2, C_SU_1, C_SU_2, C_SU_2, C_SU_2, C_____, C_____, C_____, C_____, C_____, C_____,
     C_SU_4, C_SU_1, C_SU_1, C_SU_1, C_SU_1, C_SU_2, C_____, C_____, C_____, C_____, C_____, C_____,
     C_SU_4, C_SU_2, C_SU_2, C_SU_2, C_SU_2, C_SU_2, C_____, C_____, C_____, C_____, C_____, C_____,
     C_SU_5, C_SU_4, C_SU_4, C_SU_4, C_SU_5,     C_SU_5,     C_SU_5, C_____, C_____, C_____, C_____
   }, // }}}
 
   [L_OHA] = { // {{{ one-handed alts
-    C_SU_4, C_SU_3, C_SU_3, C_SU_3, C_SU_2, C_SU_2, C_____, C_____, C_____, C_____, C_____, C_____,
+    C_SU_4, C_SU_3, C_SU_1, C_SU_3, C_SU_2, C_SU_2, C_____, C_____, C_____, C_____, C_____, C_____,
     C_SU_4, C_SU_1, C_SU_1, C_SU_1, C_SU_1, C_SU_2, C_____, C_____, C_____, C_____, C_____, C_____,
     C_SU_4, C_SU_3, C_SU_2, C_SU_2, C_SU_2, C_SU_2, C_____, C_____, C_____, C_____, C_____, C_____,
     C_SU_5, C_SU_4, C_SU_4, C_SU_4, C_SU_5,     C_SU_5,     C_SU_5, C_____, C_____, C_____, C_____
@@ -493,23 +491,23 @@ const color_t PROGMEM ledmap[L_MAX][RGB_MATRIX_LED_COUNT] = {
   }, // }}}
 
   [L_XNF] = { // {{{ navigation/functions
-    C_SU_4, C_SU_3, C_SU_2, C_SU_1, C_SU_2, C_SU_2, C_____, C_SU_1, C_SU_1, C_SU_1, C_SU_1, C_SU_4,
-    C_SU_4, C_SU_3, C_SU_1, C_SU_1, C_SU_1, C_SU_2, C_____, C_SU_1, C_SU_1, C_SU_1, C_SU_1, C_SU_4,
-    C_SU_4, C_SU_3, C_SU_3, C_____, C_SU_3, C_SU_1, C_____, C_SU_1, C_SU_1, C_SU_1, C_SU_1, C_SU_4,
+    C_SU_4, C_SU_2, C_SU_2, C_SU_1, C_SU_2, C_SU_2, C_____, C_SU_1, C_SU_1, C_SU_1, C_SU_1, C_SU_4,
+    C_SU_4, C_SU_2, C_SU_1, C_SU_1, C_SU_1, C_SU_2, C_____, C_SU_1, C_SU_1, C_SU_1, C_SU_1, C_SU_4,
+    C_SU_4, C_SU_2, C_SU_2, C_____, C_SU_2, C_SU_1, C_____, C_SU_1, C_SU_1, C_SU_1, C_SU_1, C_SU_4,
     C_SU_5, C_SU_4, C_SU_4, C_SU_4, C_SU_5,     C_SU_5,     C_SU_5, C_SU_4, C_SU_4, C_SU_4, C_SU_4
   }, // }}}
 
   [L_XMM] = { // {{{ misc/mouse
-    C_SU_4, C_SU_1, C_____, C_____, C_SU_1, C_____, C_TO_2, C_TO_2, C_TO_3, C_TO_2, C_TO_1, C_SU_4,
-    C_SU_4, C_SU_4, C_SU_4, C_SU_4, C_SU_4, C_SU_1, C_TO_2, C_TO_3, C_TO_3, C_TO_3, C_TO_1, C_SU_4,
-    C_SU_4, C_SU_1, C_SU_1, C_SU_1, C_SU_1, C_SU_1, C_TO_2, C_TO_1, C_____, C_TO_1, C_TO_4, C_SU_4,
+    C_SU_4, C_____, C_____, C_SU_1, C_SU_1, C_SU_1, C_TO_2, C_TO_2, C_TO_1, C_TO_2, C_TO_3, C_SU_4,
+    C_SU_4, C_SU_4, C_SU_4, C_SU_4, C_SU_4, C_SU_1, C_TO_2, C_TO_1, C_TO_1, C_TO_1, C_TO_3, C_SU_4,
+    C_SU_4, C_____, C_SU_2, C_SU_2, C_SU_2, C_SU_1, C_TO_2, C_TO_3, C_____, C_TO_3, C_TO_4, C_SU_4,
     C_SU_5, C_SU_4, C_SU_4, C_SU_4, C_SU_5,     C_SU_5,     C_SU_5, C_SU_4, C_SU_4, C_SU_4, C_SU_4
   }, // }}}
 
   [L_XMF] = { // {{{ media/functions
-    C_SU_4, C_RU_3, C_RU_2, C_RU_3, C_RU_3, C_RU_1, C_____, C_SU_1, C_SU_1, C_SU_1, C_SU_1, C_SU_4,
-    C_SU_4, C_SU_4, C_SU_4, C_SU_4, C_SU_4, C_____, C_____, C_SU_1, C_SU_1, C_SU_1, C_SU_1, C_SU_4,
-    C_SU_4, C_RU_1, C_RU_1, C_RU_4, C_RU_4, C_RU_1, C_____, C_SU_1, C_SU_1, C_SU_1, C_SU_1, C_SU_4,
+    C_SU_4, C_RU_3, C_RU_2, C_RU_2, C_RU_1, C_RU_2, C_____, C_SU_1, C_SU_1, C_SU_1, C_SU_1, C_SU_4,
+    C_SU_4, C_SU_4, C_SU_4, C_SU_4, C_SU_4, C_RU_2, C_____, C_SU_1, C_SU_1, C_SU_1, C_SU_1, C_SU_4,
+    C_SU_4, C_RU_1, C_RU_3, C_RU_3, C_____, C_RU_1, C_____, C_SU_1, C_SU_1, C_SU_1, C_SU_1, C_SU_4,
     C_SU_5, C_SU_4, C_SU_4, C_SU_4, C_SU_5,     C_SU_5,     C_SU_5, C_SU_4, C_SU_4, C_SU_4, C_SU_4
   }, // }}}
 
@@ -528,10 +526,10 @@ const color_t PROGMEM ledmap[L_MAX][RGB_MATRIX_LED_COUNT] = {
   }, // }}}
 
   [L_FN] = { // {{{ functions
-    C_SU_4, C_____, C_____, C_____, C_____, C_____, C_____, C_____, C_____, C_____, C_____, C_SU_4,
-    C_SU_4, C_____, C_____, C_____, C_____, C_____, C_____, C_____, C_____, C_____, C_____, C_SU_4,
-    C_SU_4, C_____, C_____, C_____, C_____, C_____, C_____, C_____, C_____, C_____, C_____, C_SU_4,
-    C_SU_5, C_SU_4, C_SU_4, C_SU_4, C_____,     C_____,     C_____, C_SU_4, C_SU_4, C_SU_4, C_____
+    C_SU_4, C_SU_1, C_SU_1, C_SU_1, C_SU_1, C_____, C_____, C_____, C_____, C_____, C_____, C_SU_4,
+    C_SU_4, C_SU_1, C_SU_1, C_SU_1, C_SU_1, C_____, C_____, C_____, C_____, C_____, C_____, C_SU_4,
+    C_SU_4, C_SU_1, C_SU_1, C_SU_1, C_SU_1, C_____, C_____, C_____, C_____, C_____, C_____, C_SU_4,
+    C_SU_5, C_SU_4, C_SU_4, C_SU_4, C_____,     C_____,     C_____, C_SU_4, C_SU_4, C_SU_4, C_SU_4
   }, // }}}
 
   [L_HUB] = { // {{{ hub
