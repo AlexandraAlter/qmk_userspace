@@ -484,9 +484,9 @@ const color_t PROGMEM ledmap[L_MAX][RGB_MATRIX_LED_COUNT] = {
   }, // }}}
 
   [L_XSN] = { // {{{ symbols/numbers
-    C_SU_4, C_SU_2, C_SU_2, C_SU_2, C_____, C_____, C_____, C_SU_3, C_SU_3, C_SU_3, C_____, C_SU_4,
-    C_SU_4, C_SU_1, C_SU_1, C_SU_1, C_SU_1, C_____, C_____, C_SU_3, C_SU_3, C_SU_3, C_SU_4, C_SU_4,
-    C_SU_4, C_SU_2, C_SU_1, C_SU_1, C_SU_1, C_SU_4, C_____, C_SU_3, C_SU_3, C_SU_3, C_SU_3, C_SU_4,
+    C_SU_4, C_SU_2, C_SU_2, C_SU_2, C_____, C_____, C_____, C_SU_2, C_SU_2, C_SU_2, C_____, C_SU_4,
+    C_SU_4, C_SU_1, C_SU_1, C_SU_1, C_SU_1, C_____, C_____, C_SU_2, C_SU_2, C_SU_2, C_SU_4, C_SU_4,
+    C_SU_4, C_SU_2, C_SU_1, C_SU_1, C_SU_1, C_SU_4, C_____, C_SU_2, C_SU_2, C_SU_2, C_SU_2, C_SU_4,
     C_SU_5, C_SU_4, C_SU_4, C_SU_4, C_SU_5,     C_SU_5,     C_SU_5, C_SU_4, C_SU_4, C_SU_4, C_SU_4
   }, // }}}
 
