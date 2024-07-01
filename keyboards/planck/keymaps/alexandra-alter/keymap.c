@@ -225,11 +225,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     MO_HUB,   _______,  _______,  _______,  KA_GLWR,  XXXXXXX,  XXXXXXX,  KA_GRAI,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX
   ), // }}}
 
+// RA_COMM is coincidentally already defined
 #define LG_GRV  (MT(MOD_LGUI, KC_GRV))
 #define LA_MINS (MT(MOD_LALT, KC_MINS))
 #define LS_EQL  (MT(MOD_LSFT, KC_EQL))
 #define LC_SLSH (MT(MOD_LCTL, KC_SLSH))
-#define RA_COMM (MT(MOD_RCTL, KC_COMM))
   [L_XSN] = LAYOUT_planck_grid( // {{{ symbols/numbers
     _______,  KC_QUOT,  RA_COMM,  KC_DOT,   XXXXXXX,  XXXXXXX,  XXXXXXX,  KC_1,     KC_2,     LA(KC_3), XXXXXXX,  _______,
     _______,  LG_GRV,   LA_MINS,  LS_EQL,   LC_SLSH,  XXXXXXX,  XXXXXXX,  RC(KC_4), RS(KC_5), RA(KC_6), KC_RGUI,  _______,
