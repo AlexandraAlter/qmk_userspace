@@ -4,36 +4,6 @@
 
 extern keyboard_config_t keyboard_config;
 
-// Basic categories:
-//   Alphas
-//     Must be usable with either hand
-//   Numerics
-//   Symbols
-//     Often paired with numerics
-//   Navigation
-//   Functions
-//   Mouse
-//     If I'm using the mouse here, I probably have a free right hand
-//     Causes problems- unsuitable for home-row mods
-//   Misc
-//   Media
-//     Doesn't need modifiers
-//   Internal keyboard functions
-//     Doesn't need modifiers save shift
-//   Extra functions
-// One-handed categories:
-//   Alphas on two layers
-//   Assume it's only for left-handed use
-//   Anything with an existing left-hand with one-handed modifiers can be reused
-//   Supplement missing modifiers by using a mod-hold layer
-//   Fit for the other hand using the swap hands feature
-// Suggested layers:
-//   Forced whole-board layers: GA, DV, QT, SHV, ST, STC
-//   Supplemental two-handed layers: SY/NU, NA/FN, ME/FN2, MI/MS
-//   Supplemental one-handed layers: NU, FN, FN2, MS
-//   One-handed layers: OH, OHA, OHM
-//   Management layers: HUB
-
 typedef enum layer_t {
   L_GA,   // gaming
   L_DV,   // dvorak
