@@ -231,21 +231,27 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     MO_HUB,   _______,  _______,  _______,  KA_LWR,   KA_SPC,   KA_SPC,   KA_RAI,   _______,  _______,  _______,  _______
   ), // }}}
 
+#define RA_MPRV (MT(MOD_RALT, KC_MPRV))
 #define LA_F15  (MT(MOD_LALT, KC_F15))
 #define RC_F17  (MT(MOD_RCTL, KC_F17))
 #define RS_F18  (MT(MOD_RSFT, KC_F18))
 #define RA_F19  (MT(MOD_RALT, KC_F19))
 #define RG_F20  (MT(MOD_RALT, KC_F20))
   [L_XMF] = LAYOUT_planck_grid( // {{{ media/functions 2
-    _______,  KC_MSTP,  KC_MPRV,  KC_MNXT,  KC_MPLY,  KC_VOLU,  XXXXXXX,  KC_F13,   KC_F14,   LA_F15,   KC_F16,   _______,
+    _______,  KC_MSTP,  RA_MPRV,  KC_MNXT,  KC_MPLY,  KC_VOLU,  XXXXXXX,  KC_F13,   KC_F14,   LA_F15,   KC_F16,   _______,
     _______,  KC_LGUI,  KC_LALT,  KC_LSFT,  KC_LCTL,  KC_VOLD,  XXXXXXX,  RC_F17,   RS_F18,   RA_F19,   RG_F20,   _______,
     _______,  KC_MSEL,  KC_MRWD,  KC_MFFD,  XXXXXXX,  KC_MUTE,  XXXXXXX,  KC_F21,   KC_F22,   KC_F23,   KC_F24,   _______,
     MO_HUB,   _______,  _______,  _______,  KA_LWR,   KA_SPC,   KA_SPC,   KA_RAI,   _______,  _______,  _______,  _______
   ), // }}}
 
+#define LA_P3   (MT(MOD_LALT, KC_P3))
+#define RC_P4   (MT(MOD_RCTL, KC_P4))
+#define RS_P5   (MT(MOD_RSFT, KC_P5))
+#define RA_P6   (MT(MOD_RALT, KC_P6))
+#define RG_PPLS (MT(MOD_RGUI, KC_PPLS))
   [L_NP] = LAYOUT_planck_grid( // {{{ number pad
-    LG_ESC,   XXXXXXX,  KC_1,     KC_2,     KC_3,     XXXXXXX,  KC_PSLS,  KC_P1,    KC_P2,    KC_P3,    KC_PMNS,  RG_TAB,
-    LC_BSPC,  XXXXXXX,  KC_4,     KC_5,     KC_6,     XXXXXXX,  KC_PAST,  KC_P4,    KC_P5,    KC_P6,    KC_PPLS,  RC_DEL,
+    LG_ESC,   XXXXXXX,  RA(KC_1), KC_2,     KC_3,     XXXXXXX,  KC_PSLS,  KC_P1,    KC_P2,    LA_P3,    KC_PMNS,  RG_TAB,
+    LC_BSPC,  KC_LGUI,  LA(KC_4), LS(KC_5), LC(KC_6), XXXXXXX,  KC_PAST,  RC_P4,    RS_P5,    RA_P6,    RG_PPLS,  RC_DEL,
     LS_TAB,   XXXXXXX,  KC_7,     KC_8,     KC_9,     KC_0,     XXXXXXX,  KC_P7,    KC_P8,    KC_P9,    KC_PENT,  RS_ENT,
     MO_HUB,   KC_LGUI,  KC_LCTL,  KC_LALT,  KA_LWR,   KA_SPC,   KA_SPC,   KA_RAI,   RA_LEFT,  RC_DOWN,  RG_UP,    LA_RGHT
   ), // }}}
@@ -488,7 +494,7 @@ const color_t PROGMEM ledmap[L_MAX][RGB_MATRIX_LED_COUNT] = {
 
   [L_NP] = { // {{{ number pad
     C_SU_4, C_____, C_SU_1, C_SU_1, C_SU_1, C_____, C_RU_2, C_RU_1, C_RU_1, C_RU_1, C_RU_2, C_SU_4,
-    C_SU_4, C_____, C_SU_1, C_SU_1, C_SU_1, C_____, C_RU_2, C_RU_1, C_RU_1, C_RU_1, C_RU_2, C_SU_4,
+    C_SU_4, C_SU_4, C_SU_1, C_SU_1, C_SU_1, C_____, C_RU_2, C_RU_1, C_RU_1, C_RU_1, C_RU_2, C_SU_4,
     C_SU_4, C_____, C_SU_1, C_SU_1, C_SU_1, C_SU_1, C_____, C_RU_1, C_RU_1, C_RU_1, C_RU_3, C_SU_4,
     C_SU_5, C_SU_4, C_SU_4, C_SU_4, C_SU_5,     C_SU_5,     C_SU_5, C_SU_4, C_SU_4, C_SU_4, C_SU_4
   }, // }}}
