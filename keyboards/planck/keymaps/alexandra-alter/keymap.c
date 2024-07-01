@@ -168,7 +168,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     MO_HUB,   KC_LGUI,  KC_LCTL,  KC_LALT,  KA_OLWR,  KA_OSPC,  KA_OSPC,  KA_ORAI,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX
   ), // }}}
 
-#define RA_COMM (MT(MOD_RALT, KC_COMM))
+// RA_COMM is coincidentally already defined
   [L_OHA] = LAYOUT_planck_grid( // {{{ one-handed alt
     _______,  KC_QUOT,  RA_COMM,  KC_DOT,   KC_P,     KC_Y,     XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,
     _______,  LG(KC_Z), LA(KC_V), LS(KC_W), LC(KC_M), KC_B,     XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,
