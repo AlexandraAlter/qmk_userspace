@@ -18,9 +18,9 @@ typedef enum layer_t {
   L_XNF,  // navigation/functions
   L_XMF,  // media/functions 2
   L_XMM,  // misc/mouse
-  L_GAN, // gaming lower
-  L_GAF, // gaming raise
-  L_GAX, // gaming adjust
+  L_GAN,  // gaming lower
+  L_GAF,  // gaming raise
+  L_GAX,  // gaming adjust
   // layers below this point cannot be used in LT macros
   L_NP,   // number pad
   L_MS,   // mouse
@@ -271,8 +271,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   ), // }}}
 
   [L_HUB] = LAYOUT_planck_grid( // {{{ hub
-    KC_LGUI,  XXXXXXX,  DF_NP,    DF_SHV,   XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  LED_CYC,  KC_RGUI,
-    KC_LCTL,  XXXXXXX,  DF_OH,    DF_DV,    DF_ST,    DF_GA,    KC_BRID,  RGB_HUI,  RGB_TOG,  RGB_SLD,  RGB_SAI,  KC_RCTL,
+    KC_LGUI,  DF_FN,    DF_MS,    DF_SHV,   XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  LED_CYC,  KC_RGUI,
+    KC_LCTL,  DF_NP,    DF_OH,    DF_DV,    DF_ST,    DF_GA,    KC_BRID,  RGB_HUI,  RGB_TOG,  RGB_SLD,  RGB_SAI,  KC_RCTL,
     KC_LSFT,  XXXXXXX,  DF_MS,    DF_QT,    DF_STC,   XXXXXXX,  KC_BRIU,  RGB_MOD,  RGB_TLC,  RGB_VAI,  RGB_SPI,  KC_RSFT,
     MO_HUB,   KC_LGUI,  KC_LCTL,  KC_LALT,  XXXXXXX,  MO_SYS,   MO_SYS,   XXXXXXX,  KC_RALT,  KC_RCTL,  KC_RGUI,  KC_LALT
   ), // }}}
@@ -514,8 +514,8 @@ const color_t PROGMEM ledmap[L_MAX][RGB_MATRIX_LED_COUNT] = {
   }, // }}}
 
   [L_HUB] = { // {{{ hub
-    C_SU_4, C_____, C_SU_1, C_SU_2, C_____, C_____, C_____, C_____, C_____, C_____, C_RU_3, C_SU_4,
-    C_SU_4, C_____, C_SU_1, C_SU_1, C_SU_1, C_SU_1, C_RU_3, C_RU_4, C_RU_1, C_RU_2, C_RU_4, C_SU_4,
+    C_SU_4, C_SU_2, C_SU_1, C_SU_2, C_____, C_____, C_____, C_____, C_____, C_____, C_RU_3, C_SU_4,
+    C_SU_4, C_SU_2, C_SU_1, C_SU_1, C_SU_1, C_SU_1, C_RU_3, C_RU_4, C_RU_1, C_RU_2, C_RU_4, C_SU_4,
     C_SU_4, C_____, C_SU_1, C_SU_2, C_SU_2, C_____, C_RU_3, C_RU_2, C_RU_1, C_RU_4, C_RU_4, C_SU_4,
     C_SU_5, C_SU_4, C_SU_4, C_SU_4, C_____,     C_SU_5,     C_____, C_SU_4, C_SU_4, C_SU_4, C_SU_4
   }, // }}}
