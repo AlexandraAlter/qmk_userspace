@@ -54,13 +54,6 @@ const uint32_t PROGMEM unicode_map[] = {
 #define KA_LWR (LT(L_XSN, KC_LBRC))
 #define KA_RAI (LT(L_XNF, KC_RBRC))
 
-#define KA_OSPC (LT(L_OHA, KC_SPC))
-#define KA_OLWR (LT(L_XSN, KC_TAB))
-#define KA_ORAI (LT(L_XNF, KC_ENT))
-
-#define KA_GLWR (MO(L_GAN))
-#define KA_GRAI (MO(L_GAF))
-
 #define LG(kc) (MT(MOD_LGUI, kc))
 #define LA(kc) (MT(MOD_LALT, kc))
 #define LS(kc) (MT(MOD_LSFT, kc))
@@ -131,26 +124,30 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     MO_HUB,   KC_LGUI,  KC_LCTL,  KC_LALT,  KA_LWR,   KA_SPC,   KA_SPC,   KA_RAI,   RA_LEFT,  RC_DOWN,  RG_UP,    LA_RGHT
   ), // }}}
 
+#define OH_BSPC (LT(L_XNF, KC_BSPC))
+#define OH_LWR  (LT(L_XSN, KC_SPC))
+#define OH_SPC  (LT(L_OHA, KC_SPC))
   [L_OH] = LAYOUT_planck_grid( // {{{ one-handed
-    LG_ESC,   KC_L,     RA(KC_R), KC_C,     KC_G,     KC_F,     XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,
-    LC_BSPC,  LG(KC_A), LA(KC_O), LS(KC_E), LC(KC_U), KC_I,     XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,
-    LS_TAB,   KC_S,     KC_N,     KC_T,     KC_H,     KC_D,     XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,
-    MO_HUB,   KC_LGUI,  KC_LCTL,  KC_LALT,  KA_OLWR,  KA_OSPC,  KA_OSPC,  KA_ORAI,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX
+    KC_ESC,   KC_L,     RA(KC_R), KC_C,     KC_G,     KC_F,     RG_TAB,   XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,
+    OH_BSPC,  LG(KC_A), LA(KC_O), LS(KC_E), LC(KC_U), KC_I,     RC_DEL,   XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,
+    LS_TAB,   KC_S,     KC_N,     KC_T,     KC_H,     KC_D,     RS_ENT,   XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,
+    MO_HUB,   OSM_GUI,  OSM_CTL,  OSM_ALT,  OH_LWR,   OH_SPC,   OH_SPC,   XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX
   ), // }}}
 
 // RA_COMM is coincidentally already defined
   [L_OHA] = LAYOUT_planck_grid( // {{{ one-handed alt
-    _______,  KC_QUOT,  RA_COMM,  KC_DOT,   KC_P,     KC_Y,     XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,
-    _______,  LG(KC_Z), LA(KC_V), LS(KC_W), LC(KC_M), KC_B,     XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,
-    _______,  KC_SCLN,  KC_Q,     KC_J,     KC_K,     KC_X,     XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,
-    MO_HUB,   _______,  _______,  _______,  _______,  _______,  _______,  _______,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX
+    _______,  KC_QUOT,  RA_COMM,  KC_DOT,   KC_P,     KC_Y,     _______,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,
+    _______,  LG(KC_Z), LA(KC_V), LS(KC_W), LC(KC_M), KC_B,     _______,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,
+    _______,  KC_SCLN,  KC_Q,     KC_J,     KC_K,     KC_X,     _______,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,
+    MO_HUB,   _______,  _______,  _______,  _______,  _______,  _______,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX
   ), // }}}
 
+// accessed through L_OHA + L_XNF
   [L_OHM] = LAYOUT_planck_grid( // {{{ one-handed modifiers
-    _______,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,
+    _______,  XXXXXXX,  OSM_RAL,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,
     _______,  OSM_GUI,  OSM_ALT,  OSM_SFT,  OSM_CTL,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,
-    _______,  XXXXXXX,  OSM_RAL,  OSM_HYP,  OSM_MEH,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,
-    MO_HUB,   _______,  _______,  _______,  _______,  _______,  _______,  _______,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX
+    _______,  XXXXXXX,  XXXXXXX,  OSM_HYP,  OSM_MEH,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,
+    MO_HUB,   _______,  _______,  _______,  _______,  _______,  _______,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX
   ), // }}}
 
   [L_ST] = LAYOUT_planck_grid( // {{{ stenotype
@@ -167,32 +164,35 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     MO_HUB,   STN_PWR,  STN_RE1,  STN_A,    STN_O,    STN_E,    STN_E,    STN_U,    STN_RE2,  STN_RE2,  STN_PWR,  MO_MS
   ), // }}}
 
+#define G_LWR (MO(L_GAN))
+#define G_RAI (MO(L_GAF))
   [L_GA] = LAYOUT_planck_grid( // {{{ gaming
     KC_ESC,   KC_TAB,   KC_HOME,  KC_UP,    KC_END,   KC_PGUP,  KC_GRV,   KC_PSLS,  KC_P1,    KC_P2,    KC_P3,    KC_PMNS,
     KC_LCTL,  KC_BSPC,  KC_LEFT,  KC_DOWN,  KC_RGHT,  KC_PGDN,  KC_BSLS,  KC_PAST,  KC_P4,    KC_P5,    KC_P6,    KC_PPLS,
     KC_LSFT,  KC_DEL,   KC_ENT,   KC_MINS,  KC_EQL,   KC_SLSH,  KC_LBRC,  KC_RBRC,  KC_P7,    KC_P8,    KC_P9,    KC_PENT,
-    MO_HUB,   KC_LGUI,  KC_LCTL,  KC_LALT,  KA_GLWR,  G_SPC,    G_SPC,    KA_GRAI,  KC_P0,    XXXXXXX,  KC_PDOT,  XXXXXXX
+    MO_HUB,   KC_LGUI,  KC_LCTL,  KC_LALT,  G_LWR,    G_SPC,    G_SPC,    G_RAI,    KC_P0,    XXXXXXX,  KC_PDOT,  XXXXXXX
   ), // }}}
 
   [L_GAN] = LAYOUT_planck_grid( // {{{ gaming alpha/numbers
     KC_LGUI,  KC_L,     KC_R,     KC_C,     KC_G,     KC_F,     XXXXXXX,  XXXXXXX,  KC_1,     KC_2,     KC_3,     XXXXXXX,
     _______,  KC_A,     KC_O,     KC_E,     KC_U,     KC_I,     XXXXXXX,  XXXXXXX,  KC_4,     KC_5,     KC_6,     XXXXXXX,
     _______,  KC_S,     KC_N,     KC_T,     KC_H,     KC_D,     XXXXXXX,  XXXXXXX,  KC_7,     KC_8,     KC_9,     KC_0,
-    MO_HUB,   _______,  _______,  _______,  KA_GLWR,  XXXXXXX,  XXXXXXX,  KA_GRAI,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX
+    MO_HUB,   _______,  _______,  _______,  _______,  XXXXXXX,  XXXXXXX,  _______,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX
   ), // }}}
 
   [L_GAF] = LAYOUT_planck_grid( // {{{ gaming alpha/functions
     KC_LGUI,  KC_QUOT,  KC_COMM,  KC_DOT,   KC_P,     KC_Y,     XXXXXXX,  XXXXXXX,  KC_F1,    KC_F2,    KC_F3,    KC_F4,
     _______,  KC_Z,     KC_V,     KC_W,     KC_M,     KC_B,     XXXXXXX,  XXXXXXX,  KC_F5,    KC_F6,    KC_F7,    KC_F8,
     _______,  KC_SCLN,  KC_Q,     KC_J,     KC_K,     KC_X,     XXXXXXX,  XXXXXXX,  KC_F9,    KC_F10,   KC_F11,   KC_F12,
-    MO_HUB,   _______,  _______,  _______,  KA_GLWR,  XXXXXXX,  XXXXXXX,  KA_GRAI,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX
+    MO_HUB,   _______,  _______,  _______,  _______,  XXXXXXX,  XXXXXXX,  _______,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX
   ), // }}}
 
+// accessed through L_GAN + L_GAF
   [L_GAX] = LAYOUT_planck_grid( // {{{ gaming extras
     KC_LGUI,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,
     _______,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  G_S_CY,   XXXXXXX,  KC_NUM,   XXXXXXX,  XXXXXXX,
     _______,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,
-    MO_HUB,   _______,  _______,  _______,  KA_GLWR,  XXXXXXX,  XXXXXXX,  KA_GRAI,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX
+    MO_HUB,   _______,  _______,  _______,  _______,  XXXXXXX,  XXXXXXX,  _______,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX
   ), // }}}
 
 // RA_COMM is coincidentally already defined
@@ -231,6 +231,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     MO_HUB,   _______,  _______,  _______,  KA_LWR,   KA_SPC,   KA_SPC,   KA_RAI,   _______,  _______,  _______,  _______
   ), // }}}
 
+// accessed through L_XSN + L_XNF
 #define RA_MPRV (MT(MOD_RALT, KC_MPRV))
 #define LA_F15  (MT(MOD_LALT, KC_F15))
 #define RC_F17  (MT(MOD_RCTL, KC_F17))
@@ -271,9 +272,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   ), // }}}
 
   [L_HUB] = LAYOUT_planck_grid( // {{{ hub
-    KC_LGUI,  DF_FN,    DF_MS,    DF_SHV,   XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  LED_CYC,  KC_RGUI,
-    KC_LCTL,  DF_NP,    DF_OH,    DF_DV,    DF_ST,    DF_GA,    KC_BRID,  RGB_HUI,  RGB_TOG,  RGB_SLD,  RGB_SAI,  KC_RCTL,
-    KC_LSFT,  XXXXXXX,  DF_MS,    DF_QT,    DF_STC,   XXXXXXX,  KC_BRIU,  RGB_MOD,  RGB_TLC,  RGB_VAI,  RGB_SPI,  KC_RSFT,
+    KC_LGUI,  XXXXXXX,  DF_SHV,   DF_QT,    DF_STC,   XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  LED_CYC,  KC_RGUI,
+    KC_LCTL,  DF_GA,    DF_OH,    DF_DV,    DF_ST,    XXXXXXX,  KC_BRID,  RGB_HUI,  RGB_TOG,  RGB_SLD,  RGB_SAI,  KC_RCTL,
+    KC_LSFT,  XXXXXXX,  DF_NP,    DF_FN,    DF_MS,    XXXXXXX,  KC_BRIU,  RGB_MOD,  RGB_TLC,  RGB_VAI,  RGB_SPI,  KC_RSFT,
     MO_HUB,   KC_LGUI,  KC_LCTL,  KC_LALT,  XXXXXXX,  MO_SYS,   MO_SYS,   XXXXXXX,  KC_RALT,  KC_RCTL,  KC_RGUI,  KC_LALT
   ), // }}}
 
@@ -402,24 +403,24 @@ const color_t PROGMEM ledmap[L_MAX][RGB_MATRIX_LED_COUNT] = {
   }, // }}}
 
   [L_OH] = { // {{{ one-handed
-    C_SO_4, C_SO_2, C_SO_1, C_SO_2, C_SO_2, C_SO_2, C_____, C_____, C_____, C_____, C_____, C_____,
-    C_SO_4, C_SO_1, C_SO_1, C_SO_1, C_SO_1, C_SO_2, C_____, C_____, C_____, C_____, C_____, C_____,
-    C_SO_4, C_SO_2, C_SO_2, C_SO_2, C_SO_2, C_SO_2, C_____, C_____, C_____, C_____, C_____, C_____,
-    C_SO_5, C_SO_4, C_SO_4, C_SO_4, C_SO_5,     C_SO_5,     C_SO_5, C_____, C_____, C_____, C_____
+    C_SO_4, C_SO_2, C_SO_1, C_SO_2, C_SO_2, C_SO_2, C_SO_4, C_____, C_____, C_____, C_____, C_____,
+    C_SO_5, C_SO_1, C_SO_1, C_SO_1, C_SO_1, C_SO_2, C_SO_4, C_____, C_____, C_____, C_____, C_____,
+    C_SO_4, C_SO_2, C_SO_2, C_SO_2, C_SO_2, C_SO_2, C_SO_4, C_____, C_____, C_____, C_____, C_____,
+    C_SO_5, C_SO_4, C_SO_4, C_SO_4, C_SO_5,     C_SO_5,     C_____, C_____, C_____, C_____, C_____
   }, // }}}
 
   [L_OHA] = { // {{{ one-handed alts
-    C_SO_4, C_SO_3, C_SO_1, C_SO_3, C_SO_2, C_SO_2, C_____, C_____, C_____, C_____, C_____, C_____,
-    C_SO_4, C_SO_1, C_SO_1, C_SO_1, C_SO_1, C_SO_2, C_____, C_____, C_____, C_____, C_____, C_____,
-    C_SO_4, C_SO_3, C_SO_2, C_SO_2, C_SO_2, C_SO_2, C_____, C_____, C_____, C_____, C_____, C_____,
-    C_SO_5, C_SO_4, C_SO_4, C_SO_4, C_SO_5,     C_SO_5,     C_SO_5, C_____, C_____, C_____, C_____
+    C_SO_4, C_SO_3, C_SO_1, C_SO_3, C_SO_2, C_SO_2, C_SO_4, C_____, C_____, C_____, C_____, C_____,
+    C_SO_5, C_SO_1, C_SO_1, C_SO_1, C_SO_1, C_SO_2, C_SO_4, C_____, C_____, C_____, C_____, C_____,
+    C_SO_4, C_SO_3, C_SO_2, C_SO_2, C_SO_2, C_SO_2, C_SO_4, C_____, C_____, C_____, C_____, C_____,
+    C_SO_5, C_SO_4, C_SO_4, C_SO_4, C_SO_5,     C_SO_5,     C_____, C_____, C_____, C_____, C_____
   }, // }}}
 
   [L_OHM] = { // {{{ one-handed modifiers
-    C_SO_4, C_____, C_____, C_____, C_____, C_____, C_____, C_____, C_____, C_____, C_____, C_____,
-    C_SO_4, C_SO_1, C_SO_1, C_SO_1, C_SO_1, C_____, C_____, C_____, C_____, C_____, C_____, C_____,
-    C_SO_4, C_____, C_SO_1, C_SO_2, C_SO_2, C_____, C_____, C_____, C_____, C_____, C_____, C_____,
-    C_SO_5, C_SO_4, C_SO_4, C_SO_4, C_SO_5,     C_SO_5,     C_SO_5, C_____, C_____, C_____, C_____
+    C_SO_4, C_____, C_SO_1, C_____, C_____, C_____, C_____, C_____, C_____, C_____, C_____, C_____,
+    C_SO_5, C_SO_1, C_SO_1, C_SO_1, C_SO_1, C_____, C_____, C_____, C_____, C_____, C_____, C_____,
+    C_SO_4, C_____, C_____, C_SO_2, C_SO_2, C_____, C_____, C_____, C_____, C_____, C_____, C_____,
+    C_SO_5, C_SO_4, C_SO_4, C_SO_4, C_SO_5,     C_SO_5,     C_____, C_____, C_____, C_____, C_____
   }, // }}}
 
   [L_ST] = { // {{{ stenotype
@@ -514,9 +515,9 @@ const color_t PROGMEM ledmap[L_MAX][RGB_MATRIX_LED_COUNT] = {
   }, // }}}
 
   [L_HUB] = { // {{{ hub
-    C_SU_4, C_SU_2, C_SU_1, C_SU_2, C_____, C_____, C_____, C_____, C_____, C_____, C_RU_3, C_SU_4,
-    C_SU_4, C_SU_2, C_SU_1, C_SU_1, C_SU_1, C_SU_1, C_RU_3, C_RU_4, C_RU_1, C_RU_2, C_RU_4, C_SU_4,
-    C_SU_4, C_____, C_SU_1, C_SU_2, C_SU_2, C_____, C_RU_3, C_RU_2, C_RU_1, C_RU_4, C_RU_4, C_SU_4,
+    C_SU_4, C_____, C_SU_1, C_SU_2, C_SU_2, C_____, C_____, C_____, C_____, C_____, C_RU_3, C_SU_4,
+    C_SU_4, C_SU_1, C_SU_1, C_SU_1, C_SU_1, C_____, C_RU_3, C_RU_4, C_RU_1, C_RU_2, C_RU_4, C_SU_4,
+    C_SU_4, C_____, C_SU_2, C_SU_2, C_SU_2, C_____, C_RU_3, C_RU_2, C_RU_1, C_RU_4, C_RU_4, C_SU_4,
     C_SU_5, C_SU_4, C_SU_4, C_SU_4, C_____,     C_SU_5,     C_____, C_SU_4, C_SU_4, C_SU_4, C_SU_4
   }, // }}}
 
@@ -561,6 +562,7 @@ bool rgb_matrix_indicators_user(void) { // {{{
 layer_state_t layer_state_set_user(layer_state_t state) { // {{{
   state = update_tri_layer_state(state, L_XSN, L_XNF, L_XMF);
   state = update_tri_layer_state(state, L_GAN, L_GAF, L_GAX);
+  state = update_tri_layer_state(state, L_OHA, L_XNF, L_OHM);
 
   if (IS_LAYER_ON_STATE(state, L_XSN) || IS_LAYER_ON_STATE(state, L_HUB))
     planck_ez_left_led_on();
