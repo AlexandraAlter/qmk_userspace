@@ -216,7 +216,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 #define RC_F5   (MT(MOD_RCTL, KC_F5))
 #define RS_F6   (MT(MOD_RSFT, KC_F6))
 #define RA_F7   (MT(MOD_RALT, KC_F7))
-#define RG_F8   (MT(MOD_RALT, KC_F8))
+#define RG_F8   (MT(MOD_RGUI, KC_F8))
   [L_XNF] = LAYOUT_planck_grid( // {{{ navigation/functions
     _______,  KC_TAB,   RA_HOME,  KC_UP,    KC_END,   KC_PGUP,  XXXXXXX,  KC_F1,    KC_F2,    LA_F3,    KC_F4,    _______,
     _______,  LG_ESC,   LA_LEFT,  LS_DOWN,  LC_RGHT,  KC_PGDN,  XXXXXXX,  RC_F5,    RS_F6,    RA_F7,    RG_F8,    _______,
@@ -237,7 +237,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 #define RC_F17  (MT(MOD_RCTL, KC_F17))
 #define RS_F18  (MT(MOD_RSFT, KC_F18))
 #define RA_F19  (MT(MOD_RALT, KC_F19))
-#define RG_F20  (MT(MOD_RALT, KC_F20))
+#define RG_F20  (MT(MOD_RGUI, KC_F20))
   [L_XMF] = LAYOUT_planck_grid( // {{{ media/functions 2
     _______,  KC_MSTP,  RA_MPRV,  KC_MNXT,  KC_MPLY,  KC_VOLU,  XXXXXXX,  KC_F13,   KC_F14,   LA_F15,   KC_F16,   _______,
     _______,  KC_LGUI,  KC_LALT,  KC_LSFT,  KC_LCTL,  KC_VOLD,  XXXXXXX,  RC_F17,   RS_F18,   RA_F19,   RG_F20,   _______,
