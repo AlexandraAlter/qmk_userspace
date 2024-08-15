@@ -7,6 +7,7 @@ extern keyboard_config_t keyboard_config;
 typedef enum layer_t {
   L_GA,   // gaming
   L_DV,   // dvorak
+  L_HD,   // hands-down
   L_QT,   // qwerty
   L_SHV,  // shavian
   L_OH,   // one-handed
@@ -20,8 +21,8 @@ typedef enum layer_t {
   L_XMM,  // misc/mouse
   L_GAN,  // gaming lower
   L_GAF,  // gaming raise
-  L_GAX,  // gaming adjust
   // layers below this point cannot be used in LT macros
+  L_GAX,  // gaming adjust
   L_NP,   // number pad
   L_MS,   // mouse
   L_FN,   // functions
@@ -89,6 +90,7 @@ const uint32_t PROGMEM unicode_map[] = {
 
 #define DF_GA  (DF(L_GA))
 #define DF_DV  (DF(L_DV))
+#define DF_HD  (DF(L_HD))
 #define DF_QT  (DF(L_QT))
 #define DF_SHV (DF(L_SHV))
 #define DF_OH  (DF(L_OH))
@@ -107,6 +109,15 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     LG_ESC,   KC_QUOT,  RA_COMM,  KC_DOT,   KC_P,     KC_Y,     KC_F,     KC_G,     KC_C,     LA(KC_R), KC_L,     RG_TAB,
     LC_BSPC,  LG(KC_A), LA(KC_O), LS(KC_E), LC(KC_U), KC_I,     KC_D,     RC(KC_H), RS(KC_T), RA(KC_N), RG(KC_S), RC_DEL,
     LS_TAB,   KC_SCLN,  KC_Q,     KC_J,     KC_K,     KC_X,     KC_B,     KC_M,     KC_W,     KC_V,     KC_Z,     RS_ENT,
+    MO_HUB,   KC_LGUI,  KC_LCTL,  KC_LALT,  KA_LWR,   KA_SPC,   KA_SPC,   KA_RAI,   RA_LEFT,  RC_DOWN,  RG_UP,    LA_RGHT
+  ), // }}}
+
+  // {{{ hands-down
+#define LA_QUOT (MT(MOD_LALT, KC_QUOT))
+  [L_HD] = LAYOUT_planck_grid(
+    LG_ESC,   KC_W,     RA(KC_F), KC_M,     KC_P,     KC_V,     KC_SLSH,  KC_DOT,   KC_Q,     LA_QUOT,  KC_TAB,   RG(KC_Z),
+    LC_BSPC,  LG(KC_R), LA(KC_S), LS(KC_N), LC(KC_T), KC_B,     KC_COMM,  RC(KC_A), RS(KC_E), RA(KC_I), RG(KC_H), RC(KC_J),
+    LS_TAB,   KC_X,     KC_C,     KC_L,     KC_D,     KC_G,     KC_MINS,  KC_U,     KC_O,     KC_Y,     KC_K,     RS_ENT,
     MO_HUB,   KC_LGUI,  KC_LCTL,  KC_LALT,  KA_LWR,   KA_SPC,   KA_SPC,   KA_RAI,   RA_LEFT,  RC_DOWN,  RG_UP,    LA_RGHT
   ), // }}}
 
@@ -281,7 +292,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   ), // }}}
 
   [L_HUB] = LAYOUT_planck_grid( // {{{ hub
-    KC_LGUI,  XXXXXXX,  DF_SHV,   DF_QT,    DF_STC,   XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  LED_CYC,  KC_RGUI,
+    KC_LGUI,  DF_SHV,   DF_HD,    DF_QT,    DF_STC,   XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  LED_CYC,  KC_RGUI,
     KC_LCTL,  DF_GA,    DF_OH,    DF_DV,    DF_ST,    XXXXXXX,  KC_BRID,  RGB_HUI,  RGB_TOG,  RGB_SLD,  RGB_SAI,  KC_RCTL,
     KC_LSFT,  XXXXXXX,  DF_NP,    DF_FN,    DF_MS,    XXXXXXX,  KC_BRIU,  RGB_MOD,  RGB_TLC,  RGB_VAI,  RGB_SPI,  KC_RSFT,
     MO_HUB,   KC_LGUI,  KC_LCTL,  KC_LALT,  XXXXXXX,  MO_SYS,   MO_SYS,   XXXXXXX,  KC_RALT,  KC_RCTL,  KC_RGUI,  KC_LALT
@@ -395,6 +406,13 @@ const color_t PROGMEM ledmap[L_MAX][RGB_MATRIX_LED_COUNT] = {
     C_SU_4, C_SU_1, C_SU_1, C_SU_1, C_SU_1, C_SU_2, C_SU_2, C_SU_1, C_SU_1, C_SU_1, C_SU_1, C_SU_4,
     C_SU_4, C_SU_2, C_SU_2, C_SU_2, C_SU_2, C_SU_2, C_SU_2, C_SU_2, C_SU_2, C_SU_2, C_SU_2, C_SU_4,
     C_SU_5, C_SU_4, C_SU_4, C_SU_4, C_SU_5,     C_SU_5,     C_SU_5, C_SU_4, C_SU_4, C_SU_4, C_SU_4
+  }, // }}}
+
+  [L_HD] = { // {{{ hands-down
+    C_CC_4, C_CC_2, C_CC_2, C_CC_2, C_CC_2, C_CC_2, C_CC_2, C_CC_2, C_CC_2, C_CC_1, C_CC_2, C_CC_4,
+    C_CC_4, C_CC_1, C_CC_1, C_CC_1, C_CC_1, C_CC_2, C_CC_2, C_CC_1, C_CC_1, C_CC_1, C_CC_1, C_CC_4,
+    C_CC_4, C_CC_2, C_CC_2, C_CC_2, C_CC_2, C_CC_2, C_CC_2, C_CC_2, C_CC_2, C_CC_2, C_CC_2, C_CC_4,
+    C_CC_5, C_CC_4, C_CC_4, C_CC_4, C_CC_5,     C_CC_5,     C_CC_5, C_CC_4, C_CC_4, C_CC_4, C_CC_4
   }, // }}}
 
   [L_QT] = { // {{{ querty
@@ -524,7 +542,7 @@ const color_t PROGMEM ledmap[L_MAX][RGB_MATRIX_LED_COUNT] = {
   }, // }}}
 
   [L_HUB] = { // {{{ hub
-    C_SU_4, C_____, C_SU_1, C_SU_2, C_SU_2, C_____, C_____, C_____, C_____, C_____, C_RU_3, C_SU_4,
+    C_SU_4, C_SU_1, C_SU_2, C_SU_2, C_SU_2, C_____, C_____, C_____, C_____, C_____, C_RU_3, C_SU_4,
     C_SU_4, C_SU_1, C_SU_1, C_SU_1, C_SU_1, C_____, C_RU_3, C_RU_4, C_RU_1, C_RU_2, C_RU_4, C_SU_4,
     C_SU_4, C_____, C_SU_2, C_SU_2, C_SU_2, C_____, C_RU_3, C_RU_2, C_RU_1, C_RU_4, C_RU_4, C_SU_4,
     C_SU_5, C_SU_4, C_SU_4, C_SU_4, C_____,     C_SU_5,     C_____, C_SU_4, C_SU_4, C_SU_4, C_SU_4
