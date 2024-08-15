@@ -101,40 +101,44 @@ const uint32_t PROGMEM unicode_map[] = {
 
 // clang-format off
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
+  // {{{ dvorak
 #define RA_COMM (MT(MOD_RALT, KC_COMM))
-  [L_DV] = LAYOUT_planck_grid( // {{{ dvorak
+  [L_DV] = LAYOUT_planck_grid(
     LG_ESC,   KC_QUOT,  RA_COMM,  KC_DOT,   KC_P,     KC_Y,     KC_F,     KC_G,     KC_C,     LA(KC_R), KC_L,     RG_TAB,
     LC_BSPC,  LG(KC_A), LA(KC_O), LS(KC_E), LC(KC_U), KC_I,     KC_D,     RC(KC_H), RS(KC_T), RA(KC_N), RG(KC_S), RC_DEL,
     LS_TAB,   KC_SCLN,  KC_Q,     KC_J,     KC_K,     KC_X,     KC_B,     KC_M,     KC_W,     KC_V,     KC_Z,     RS_ENT,
     MO_HUB,   KC_LGUI,  KC_LCTL,  KC_LALT,  KA_LWR,   KA_SPC,   KA_SPC,   KA_RAI,   RA_LEFT,  RC_DOWN,  RG_UP,    LA_RGHT
   ), // }}}
 
+  // {{{ qwerty
 #define RG_SCLN (MT(MOD_RGUI, KC_SCLN))
-  [L_QT] = LAYOUT_planck_grid( // {{{ qwerty
+  [L_QT] = LAYOUT_planck_grid(
     LG_ESC,   KC_Q,     RA(KC_W), KC_E,     KC_R,     KC_T,     KC_Y,     KC_U,     KC_I,     LA(KC_O), KC_P,     RG_TAB,
     LC_BSPC,  LG(KC_A), LA(KC_S), LS(KC_D), LC(KC_F), KC_G,     KC_H,     RC(KC_J), RS(KC_K), RA(KC_L), RG_SCLN,  RC_DEL,
     LS_TAB,   KC_Z,     KC_X,     KC_C,     KC_V,     KC_B,     KC_N,     KC_M,     KC_COMM,  KC_DOT,   KC_SLSH,  RS_ENT,
     MO_HUB,   KC_LGUI,  KC_LCTL,  KC_LALT,  KA_LWR,   KA_SPC,   KA_SPC,   KA_RAI,   RA_LEFT,  RC_DOWN,  RG_UP,    LA_RGHT
   ), // }}}
 
-  [L_SHV] = LAYOUT_planck_grid( // {{{ shavian
+  // {{{ shavian
+  [L_SHV] = LAYOUT_planck_grid(
     LG_ESC,   SHV_1_0,  SHV_1_1,  SHV_1_2,  SHV_1_3,  SHV_1_4,  SHV_1_5,  SHV_1_6,  SHV_1_7,  SHV_1_8,  SHV_1_9,  RG_TAB,
     LC_BSPC,  SHV_2_0,  SHV_2_1,  SHV_2_2,  SHV_2_3,  SHV_2_4,  SHV_2_5,  SHV_2_6,  SHV_2_7,  SHV_2_8,  SHV_2_9,  RC_DEL,
     LS_TAB,   SHV_3_0,  SHV_3_1,  SHV_3_2,  SHV_3_3,  SHV_3_4,  SHV_3_5,  SHV_3_6,  SHV_3_7,  SHV_3_8,  SHV_3_9,  RS_ENT,
     MO_HUB,   KC_LGUI,  KC_LCTL,  KC_LALT,  KA_LWR,   KA_SPC,   KA_SPC,   KA_RAI,   RA_LEFT,  RC_DOWN,  RG_UP,    LA_RGHT
   ), // }}}
 
+  // {{{ one-handed
 #define OH_BSPC (LT(L_XNF, KC_BSPC))
 #define OH_LWR  (LT(L_XSN, KC_SPC))
 #define OH_SPC  (LT(L_OHA, KC_SPC))
-  [L_OH] = LAYOUT_planck_grid( // {{{ one-handed
+  [L_OH] = LAYOUT_planck_grid(
     KC_ESC,   KC_L,     RA(KC_R), KC_C,     KC_G,     KC_F,     RG_TAB,   XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,
     OH_BSPC,  LG(KC_A), LA(KC_O), LS(KC_E), LC(KC_U), KC_I,     RC_DEL,   XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,
     LS_TAB,   KC_S,     KC_N,     KC_T,     KC_H,     KC_D,     RS_ENT,   XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,
     MO_HUB,   OSM_GUI,  OSM_CTL,  OSM_ALT,  OH_LWR,   OH_SPC,   OH_SPC,   XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX
   ), // }}}
 
-// RA_COMM is coincidentally already defined
+  // RA_COMM is coincidentally already defined
   [L_OHA] = LAYOUT_planck_grid( // {{{ one-handed alt
     _______,  KC_QUOT,  RA_COMM,  KC_DOT,   KC_P,     KC_Y,     _______,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,
     _______,  LG(KC_Z), LA(KC_V), LS(KC_W), LC(KC_M), KC_B,     _______,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,
@@ -142,7 +146,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     MO_HUB,   _______,  _______,  _______,  _______,  _______,  _______,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX
   ), // }}}
 
-// accessed through L_OHA + L_XNF
+  // accessed through L_OHA + L_XNF
   [L_OHM] = LAYOUT_planck_grid( // {{{ one-handed modifiers
     _______,  XXXXXXX,  OSM_RAL,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,
     _______,  OSM_GUI,  OSM_ALT,  OSM_SFT,  OSM_CTL,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,
@@ -164,9 +168,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     MO_HUB,   STN_PWR,  STN_RE1,  STN_A,    STN_O,    STN_E,    STN_E,    STN_U,    STN_RE2,  STN_RE2,  STN_PWR,  MO_MS
   ), // }}}
 
+  // {{{ gaming
 #define G_LWR (MO(L_GAN))
 #define G_RAI (MO(L_GAF))
-  [L_GA] = LAYOUT_planck_grid( // {{{ gaming
+  [L_GA] = LAYOUT_planck_grid(
     KC_ESC,   KC_TAB,   KC_HOME,  KC_UP,    KC_END,   KC_PGUP,  KC_GRV,   KC_PSLS,  KC_P1,    KC_P2,    KC_P3,    KC_PMNS,
     KC_LCTL,  KC_BSPC,  KC_LEFT,  KC_DOWN,  KC_RGHT,  KC_PGDN,  KC_BSLS,  KC_PAST,  KC_P4,    KC_P5,    KC_P6,    KC_PPLS,
     KC_LSFT,  KC_DEL,   KC_ENT,   KC_MINS,  KC_EQL,   KC_SLSH,  KC_LBRC,  KC_RBRC,  KC_P7,    KC_P8,    KC_P9,    KC_PENT,
@@ -187,7 +192,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     MO_HUB,   _______,  _______,  _______,  _______,  XXXXXXX,  XXXXXXX,  _______,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX
   ), // }}}
 
-// accessed through L_GAN + L_GAF
+  // accessed through L_GAN + L_GAF
   [L_GAX] = LAYOUT_planck_grid( // {{{ gaming extras
     KC_LGUI,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,
     _______,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  G_S_CY,   XXXXXXX,  KC_NUM,   XXXXXXX,  XXXXXXX,
@@ -195,19 +200,21 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     MO_HUB,   _______,  _______,  _______,  _______,  XXXXXXX,  XXXXXXX,  _______,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX
   ), // }}}
 
-// RA_COMM is coincidentally already defined
+  // {{{ symbols/numbers
+  // RA_COMM is coincidentally already defined
 #define LG_GRV  (MT(MOD_LGUI, KC_GRV))
 #define LA_MINS (MT(MOD_LALT, KC_MINS))
 #define LS_EQL  (MT(MOD_LSFT, KC_EQL))
 #define LC_SLSH (MT(MOD_LCTL, KC_SLSH))
-  [L_XSN] = LAYOUT_planck_grid( // {{{ symbols/numbers
+  [L_XSN] = LAYOUT_planck_grid(
     _______,  KC_QUOT,  RA_COMM,  KC_DOT,   XXXXXXX,  XXXXXXX,  XXXXXXX,  KC_1,     KC_2,     LA(KC_3), XXXXXXX,  _______,
     _______,  LG_GRV,   LA_MINS,  LS_EQL,   LC_SLSH,  XXXXXXX,  XXXXXXX,  RC(KC_4), RS(KC_5), RA(KC_6), KC_RGUI,  _______,
     _______,  KC_SCLN,  KC_LBRC,  KC_RBRC,  KC_BSLS,  KC_RALT,  XXXXXXX,  KC_7,     KC_8,     KC_9,     KC_0,     _______,
     MO_HUB,   _______,  _______,  _______,  KA_LWR,   KA_SPC,   KA_SPC,   KA_RAI,   _______,  _______,  _______,  _______
   ), // }}}
 
-// LG_ESC is coincidentally already defined
+  // {{{ navigation/functions
+  // LG_ESC is coincidentally already defined
 #define LA_LEFT (MT(MOD_LALT, KC_LEFT))
 #define LS_DOWN (MT(MOD_LSFT, KC_DOWN))
 #define LC_RGHT (MT(MOD_LCTL, KC_RGHT))
@@ -217,7 +224,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 #define RS_F6   (MT(MOD_RSFT, KC_F6))
 #define RA_F7   (MT(MOD_RALT, KC_F7))
 #define RG_F8   (MT(MOD_RGUI, KC_F8))
-  [L_XNF] = LAYOUT_planck_grid( // {{{ navigation/functions
+  [L_XNF] = LAYOUT_planck_grid(
     _______,  KC_TAB,   RA_HOME,  KC_UP,    KC_END,   KC_PGUP,  XXXXXXX,  KC_F1,    KC_F2,    LA_F3,    KC_F4,    _______,
     _______,  LG_ESC,   LA_LEFT,  LS_DOWN,  LC_RGHT,  KC_PGDN,  XXXXXXX,  RC_F5,    RS_F6,    RA_F7,    RG_F8,    _______,
     _______,  KC_ENT,   KC_BSPC,  XXXXXXX,  KC_DEL,   KC_APP,   XXXXXXX,  KC_F9,    KC_F10,   KC_F11,   KC_F12,   _______,
@@ -231,26 +238,28 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     MO_HUB,   _______,  _______,  _______,  KA_LWR,   KA_SPC,   KA_SPC,   KA_RAI,   _______,  _______,  _______,  _______
   ), // }}}
 
-// accessed through L_XSN + L_XNF
+  // {{{ media/functions 2
+  // accessed through L_XSN + L_XNF
 #define RA_MPRV (MT(MOD_RALT, KC_MPRV))
 #define LA_F15  (MT(MOD_LALT, KC_F15))
 #define RC_F17  (MT(MOD_RCTL, KC_F17))
 #define RS_F18  (MT(MOD_RSFT, KC_F18))
 #define RA_F19  (MT(MOD_RALT, KC_F19))
 #define RG_F20  (MT(MOD_RGUI, KC_F20))
-  [L_XMF] = LAYOUT_planck_grid( // {{{ media/functions 2
+  [L_XMF] = LAYOUT_planck_grid(
     _______,  KC_MSTP,  RA_MPRV,  KC_MNXT,  KC_MPLY,  KC_VOLU,  XXXXXXX,  KC_F13,   KC_F14,   LA_F15,   KC_F16,   _______,
     _______,  KC_LGUI,  KC_LALT,  KC_LSFT,  KC_LCTL,  KC_VOLD,  XXXXXXX,  RC_F17,   RS_F18,   RA_F19,   RG_F20,   _______,
     _______,  KC_MSEL,  KC_MRWD,  KC_MFFD,  XXXXXXX,  KC_MUTE,  XXXXXXX,  KC_F21,   KC_F22,   KC_F23,   KC_F24,   _______,
     MO_HUB,   _______,  _______,  _______,  KA_LWR,   KA_SPC,   KA_SPC,   KA_RAI,   _______,  _______,  _______,  _______
   ), // }}}
 
+  // {{{ number pad
 #define LA_P3   (MT(MOD_LALT, KC_P3))
 #define RC_P4   (MT(MOD_RCTL, KC_P4))
 #define RS_P5   (MT(MOD_RSFT, KC_P5))
 #define RA_P6   (MT(MOD_RALT, KC_P6))
 #define RG_PPLS (MT(MOD_RGUI, KC_PPLS))
-  [L_NP] = LAYOUT_planck_grid( // {{{ number pad
+  [L_NP] = LAYOUT_planck_grid(
     LG_ESC,   XXXXXXX,  RA(KC_1), KC_2,     KC_3,     XXXXXXX,  KC_PSLS,  KC_P1,    KC_P2,    LA_P3,    KC_PMNS,  RG_TAB,
     LC_BSPC,  KC_LGUI,  LA(KC_4), LS(KC_5), LC(KC_6), XXXXXXX,  KC_PAST,  RC_P4,    RS_P5,    RA_P6,    RG_PPLS,  RC_DEL,
     LS_TAB,   XXXXXXX,  KC_7,     KC_8,     KC_9,     KC_0,     XXXXXXX,  KC_P7,    KC_P8,    KC_P9,    KC_PENT,  RS_ENT,
