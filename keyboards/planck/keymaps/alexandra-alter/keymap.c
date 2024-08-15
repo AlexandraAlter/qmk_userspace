@@ -140,7 +140,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   // {{{ one-handed
 #define OH_BSPC (LT(L_XNF, KC_BSPC))
-#define OH_LWR  (LT(L_XSN, KC_SPC))
+#define OH_LWR  (LT(L_XSN, KC_ENT))
 #define OH_SPC  (LT(L_OHA, KC_SPC))
   [L_OH] = LAYOUT_planck_grid(
     KC_ESC,   KC_L,     RA(KC_R), KC_C,     KC_G,     KC_F,     RG_TAB,   XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,
@@ -591,11 +591,22 @@ layer_state_t layer_state_set_user(layer_state_t state) { // {{{
   state = update_tri_layer_state(state, L_GAN, L_GAF, L_GAX);
   state = update_tri_layer_state(state, L_OHA, L_XNF, L_OHM);
 
-  if (IS_LAYER_ON_STATE(state, L_XSN) || IS_LAYER_ON_STATE(state, L_HUB))
+  bool oh = IS_LAYER_ON_STATE(state, L_OH);
+
+  if (oh)
+    state = update_tri_layer_state(state, L_XSN, L_XNF, L_NP);
+
+  bool hub = IS_LAYER_ON_STATE(state, L_HUB);
+  bool l_led = IS_LAYER_ON_STATE(state, L_XSN) || hub;
+  bool r_led = IS_LAYER_ON_STATE(state, L_XNF) || hub;
+  bool l_oh_led = oh && IS_LAYER_ON_STATE(state, L_XSN);
+  bool r_oh_led = oh && IS_LAYER_ON_STATE(state, L_OHA);
+
+  if (l_led || l_oh_led)
     planck_ez_left_led_on();
   else
     planck_ez_left_led_off();
-  if (IS_LAYER_ON_STATE(state, L_XNF) || IS_LAYER_ON_STATE(state, L_HUB))
+  if (r_led || r_oh_led)
     planck_ez_right_led_on();
   else
     planck_ez_right_led_off();
