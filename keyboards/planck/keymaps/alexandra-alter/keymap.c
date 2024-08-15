@@ -242,13 +242,6 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     MO_HUB,   _______,  _______,  _______,  KA_LWR,   KA_SPC,   KA_SPC,   KA_RAI,   _______,  _______,  _______,  _______
   ), // }}}
 
-  [L_XMM] = LAYOUT_planck_grid( // {{{ misc/mouse
-    _______,  XXXXXXX,  KC_RALT,  KC_BRK,   KC_PSCR,  KC_SYRQ,  KC_BTN3,  KC_BTN4,  KC_MS_U,  KC_BTN5,  KC_WH_U,  _______,
-    _______,  KC_LGUI,  KC_LALT,  KC_LSFT,  KC_LCTL,  KC_INS,   KC_BTN1,  KC_MS_L,  KC_MS_D,  KC_MS_R,  KC_WH_D,  _______,
-    _______,  XXXXXXX,  KC_SCRL,  KC_NUM,   KC_CAPS,  KC_PAUS,  KC_BTN2,  KC_WH_L,  XXXXXXX,  KC_WH_R,  KC_ACL2,  _______,
-    MO_HUB,   _______,  _______,  _______,  KA_LWR,   KA_SPC,   KA_SPC,   KA_RAI,   _______,  _______,  _______,  _______
-  ), // }}}
-
   // {{{ media/functions 2
   // accessed through L_XSN + L_XNF
 #define RA_MPRV (MT(MOD_RALT, KC_MPRV))
@@ -261,6 +254,13 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     _______,  KC_MSTP,  RA_MPRV,  KC_MNXT,  KC_MPLY,  KC_VOLU,  XXXXXXX,  KC_F13,   KC_F14,   LA_F15,   KC_F16,   _______,
     _______,  KC_LGUI,  KC_LALT,  KC_LSFT,  KC_LCTL,  KC_VOLD,  XXXXXXX,  RC_F17,   RS_F18,   RA_F19,   RG_F20,   _______,
     _______,  KC_MSEL,  KC_MRWD,  KC_MFFD,  XXXXXXX,  KC_MUTE,  XXXXXXX,  KC_F21,   KC_F22,   KC_F23,   KC_F24,   _______,
+    MO_HUB,   _______,  _______,  _______,  KA_LWR,   KA_SPC,   KA_SPC,   KA_RAI,   _______,  _______,  _______,  _______
+  ), // }}}
+
+  [L_XMM] = LAYOUT_planck_grid( // {{{ misc/mouse
+    _______,  XXXXXXX,  KC_RALT,  KC_BRK,   KC_PSCR,  KC_SYRQ,  KC_BTN3,  KC_BTN4,  KC_MS_U,  KC_BTN5,  KC_WH_U,  _______,
+    _______,  KC_LGUI,  KC_LALT,  KC_LSFT,  KC_LCTL,  KC_INS,   KC_BTN1,  KC_MS_L,  KC_MS_D,  KC_MS_R,  KC_WH_D,  _______,
+    _______,  XXXXXXX,  KC_SCRL,  KC_NUM,   KC_CAPS,  KC_PAUS,  KC_BTN2,  KC_WH_L,  XXXXXXX,  KC_WH_R,  KC_ACL2,  _______,
     MO_HUB,   _______,  _______,  _______,  KA_LWR,   KA_SPC,   KA_SPC,   KA_RAI,   _______,  _______,  _______,  _______
   ), // }}}
 
