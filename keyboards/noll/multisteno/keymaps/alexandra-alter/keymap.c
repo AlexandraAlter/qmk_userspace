@@ -81,6 +81,7 @@ typedef enum layer_t {
 #define DF_NP (DF(L_NP))
 #define DF_MS (DF(L_MS))
 #define MO_MOD (MO(L_MOD))
+#define MO_HUB (MO(L_HUB))
 // }}}
 
 // {{{ layout convenience defs
@@ -112,7 +113,7 @@ LAYOUT_3x6_3(                                                   \
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   [L_ST] = LAYOUT_3x6_3( // {{{ stenotype
-    MO_MOD,   STN_N2,   STN_N3,   STN_N4,   STN_N5,   STN_N6,   STN_N7,   STN_N8,   STN_N9,   STN_NA,   STN_NB,   STN_PWR,
+    MO_HUB,   STN_N2,   STN_N3,   STN_N4,   STN_N5,   STN_N6,   STN_N7,   STN_N8,   STN_N9,   STN_NA,   STN_NB,   STN_PWR,
     STN_FN,   STN_S1,   STN_TL,   STN_PL,   STN_HL,   STN_ST1,  STN_ST3,  STN_FR,   STN_PR,   STN_LR,   STN_TR,   STN_DR,
     STN_FN,   STN_S2,   STN_KL,   STN_WL,   STN_RL,   STN_ST2,  STN_ST4,  STN_RR,   STN_BR,   STN_GR,   STN_SR,   STN_ZR,
                                   STN_RE1,  STN_A,    STN_O,    STN_E,    STN_U,    STN_RE2
